@@ -1,0 +1,62 @@
+# DIMENSIONS THAT HAVE NAMED UNITS     DEFINITION                                                                        UNITS          
+# BASE
+none                                 "dimension_t {{ 0, 0, 0, 0, 0, 0, 0 }}"                        none      _   1                                                    
+length                               "dimension_t {{ 1, 0, 0, 0, 0, 0, 0 }}"                        metre     m   1                                                       
+mass                                 "dimension_t {{ 0, 1, 0, 0, 0, 0, 0 }}"                        gram      g   1e-3                                                     
+time                                 "dimension_t {{ 0, 0, 1, 0, 0, 0, 0 }}"                        second    s   1                                                
+electric_current                     "dimension_t {{ 0, 0, 0, 1, 0, 0, 0 }}"                        ampere    A   1                                                           
+thermodynamic_temperature            "dimension_t {{ 0, 0, 0, 0, 1, 0, 0 }}"                        kelvin    K   1                                                                   
+amount_of_substance                  "dimension_t {{ 0, 0, 0, 0, 0, 1, 0 }}"                        mole      mol   1                                                            
+luminous_intensity                   "dimension_t {{ 0, 0, 0, 0, 0, 0, 1 }}"                        candela   cd   1                                                          
+# DERIVED WITH NAMES                                                                                                                          
+frequency                            "pow <-1> (time)"                                                                   hertz     Hz   1          
+force                                "mass * length * pow <-2> (time)"                                                   newton    N   1                      
+pressure                             "mass * pow <-1> (length) * pow <-2> (time)"                                        pascal    Pa   1  bar bar 1e5                     
+energy                               "mass * pow <2> (length) * pow <-2> (time)"                                         joule     J   1                                
+work                                 "mass * pow <2> (length) * pow <-2> (time)"                                         watt      W   1                              
+electric_charge                      "electric_current * time"                                                           coulomb   C   1                       
+electric_potential_difference        "mass * pow <2> (length) * pow <-3> (time) * pow <-1> (electric_current)"           volt      V   1                                                                                     
+capacitance                          "pow <-1> (mass) * pow <-2> (length) * pow <4> (time) * pow <2> (electric_current)" farad     F   1                                                                             
+electric_resistance                  "mass * pow <2> (length) * pow <-3> (time) * pow <-2> (electric_current)"           ohm       \u2126   1                                                                           
+electric_conductance                 "pow <-1> (mass) * pow <-2> (length) * pow <3> (time) * pow <2> (electric_current)" siemens   S   1                                                                                      
+magnetic_flux                        "mass * pow <2> (length) * pow <-2> (time) * pow <-1> (electric_current)"           weber     Wb   1                                                                     
+magnetic_flux_density                "mass * pow <-2> (time) * pow <-1> (electric_current)"                              tesla     T   1                                                          
+inductance                           "mass * pow <2> (length) * pow <-2> (time) * pow <-2> (electric_current)"           henry     H   1                                                                  
+luminous_flux                        "luminous_intensity"                                                                lumen     lu   1                   
+illuminance                          "luminous_intensity * pow <-2> (length)"                                            lux       lx   1                                     
+activity_referred_to_a_radionuclide  "pow <-1> (time)"                                                                   becquerel Bq   1                                      
+absorbed_dose                        "pow <2> (length) * pow <-2> (time)"                                                gray       Gy  1                                    
+dose_equivalent                      "pow <2> (length) * pow <-2> (time)"                                                sievert    Sv  1                                               
+catalytic_activity                   "amount_of_substance * pow <-1> (time)"                                             katal      kat  1                                                                                      
+
+# DERIVED NO NAMES
+velocity                             "length / time"                                                                                           
+area                                 "length * length"                                                                                       
+volume                               "pow <3> (length)"                                                                                         
+density                              "mass / volume"                                                                     
+massic_energy                        "energy / mass"                                                                                                
+entropy                              "energy / thermodynamic_temperature"                                                                                          
+massic_entropy                       "entropy / mass"                                                                                                 
+
+# ALIASES
+temperature                          "thermodynamic_temperature"
+dimensionless                        "none"                                                                                                 
+stress                               "pressure"
+amount_of_heat                       "work"                                                                                     
+power                                "work"                                                                            
+radiant_flux                         "work"                                                                                   
+amount_of_electricity                "electric_charge"
+electromotive_force                  "electric_potential_difference"
+celsius_temperature                  "thermodynamic_temperature"                                                                                                          
+specific_energy_imparted             "absorbed_dose"                                                                                                                 
+kerma                                "absorbed_dose"                                                                              
+ambient_dose_equivalent              "dose_equivalent"                                                             
+directional_dose_equivalent          "dose_equivalent"                                                                                                              
+personal_dose_equivalent             "dose_equivalent"                                                                                                           
+heat_capacity                        "entropy"                                                                                                
+massic_heat_capacity                 "massic_entropy"                                                                                                       
+massic_enthalpy                      "massic_energy"                                                                                                
+
+# plane_angle                          "length / length"                                                                               radian      1            
+# solid_angle                          "pow <2> (length) / pow <2> (length)"                                                           steradian   1                                
+
