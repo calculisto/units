@@ -45,7 +45,7 @@ in the root directory of the project.
 Alternatives
 ------------
 
-(That I now of.)
+(That I know of.)
 
 - https://github.com/nholthaus/units
 - https://www.boost.org/doc/libs/1_74_0/doc/html/boost_units.html
