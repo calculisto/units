@@ -59,6 +59,9 @@ quantity_conversion_error
 {};
 
 } // namespace isto::units
+
+
+#ifdef ISTO_UNITS_HAS_HASH_COMBINE
     namespace 
 std
 {
@@ -74,6 +77,7 @@ std
         }
     };
 } // namespace std
+#endif
 
     namespace
 isto::units
