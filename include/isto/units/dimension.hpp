@@ -1,11 +1,8 @@
 #pragma once
 #include <array>
-#if __has_include(<isto/hash_combine/hash_combine.hpp>)
 #include <isto/hash_combine/hash_combine.hpp>
-#define ISTO_UNITS_HAS_HASH_COMBINE
     using isto::hash_combine::hash_combine;
     using isto::hash_combine::hash_combine_range;
-#endif
 
     namespace
 isto::units
@@ -119,7 +116,6 @@ operator - (dimension_t a, dimension_t b) = delete;
 
 } // namespace isto::units
 
-#ifdef ISTO_UNITS_HAS_HASH_COMBINE
     namespace
 std
 {
@@ -136,4 +132,3 @@ std
         }
     };
 }
-#endif
