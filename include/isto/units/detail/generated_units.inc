@@ -58,113 +58,113 @@ dimension
     inline const auto
 names_to_values = std::unordered_map <std::string, dimension_t>
 {
-    { "none",  none },
-    { "length",  length },
-    { "mass",  mass },
-    { "time",  time },
-    { "electric_current",  electric_current },
-    { "thermodynamic_temperature",  thermodynamic_temperature },
-    { "amount_of_substance",  amount_of_substance },
-    { "luminous_intensity",  luminous_intensity },
-    { "frequency",  frequency },
-    { "force",  force },
-    { "pressure",  pressure },
-    { "energy",  energy },
-    { "work",  work },
-    { "electric_charge",  electric_charge },
-    { "electric_potential_difference",  electric_potential_difference },
-    { "capacitance",  capacitance },
-    { "electric_resistance",  electric_resistance },
-    { "electric_conductance",  electric_conductance },
-    { "magnetic_flux",  magnetic_flux },
-    { "magnetic_flux_density",  magnetic_flux_density },
-    { "inductance",  inductance },
-    { "luminous_flux",  luminous_flux },
-    { "illuminance",  illuminance },
-    { "activity_referred_to_a_radionuclide",  activity_referred_to_a_radionuclide },
-    { "absorbed_dose",  absorbed_dose },
-    { "dose_equivalent",  dose_equivalent },
-    { "catalytic_activity",  catalytic_activity },
-    { "velocity",  velocity },
-    { "area",  area },
-    { "volume",  volume },
-    { "density",  density },
-    { "massic_energy",  massic_energy },
-    { "entropy",  entropy },
-    { "massic_entropy",  massic_entropy },
-    { "temperature",  temperature },
-    { "dimensionless",  dimensionless },
-    { "stress",  stress },
-    { "amount_of_heat",  amount_of_heat },
-    { "power",  power },
-    { "radiant_flux",  radiant_flux },
-    { "amount_of_electricity",  amount_of_electricity },
-    { "electromotive_force",  electromotive_force },
-    { "celsius_temperature",  celsius_temperature },
-    { "specific_energy_imparted",  specific_energy_imparted },
-    { "kerma",  kerma },
-    { "ambient_dose_equivalent",  ambient_dose_equivalent },
-    { "directional_dose_equivalent",  directional_dose_equivalent },
-    { "personal_dose_equivalent",  personal_dose_equivalent },
-    { "heat_capacity",  heat_capacity },
-    { "massic_heat_capacity",  massic_heat_capacity },
-    { "massic_enthalpy",  massic_enthalpy },
+    { "none", none },
+    { "length", length },
+    { "mass", mass },
+    { "time", time },
+    { "electric_current", electric_current },
+    { "thermodynamic_temperature", thermodynamic_temperature },
+    { "amount_of_substance", amount_of_substance },
+    { "luminous_intensity", luminous_intensity },
+    { "frequency", frequency },
+    { "force", force },
+    { "pressure", pressure },
+    { "energy", energy },
+    { "work", work },
+    { "electric_charge", electric_charge },
+    { "electric_potential_difference", electric_potential_difference },
+    { "capacitance", capacitance },
+    { "electric_resistance", electric_resistance },
+    { "electric_conductance", electric_conductance },
+    { "magnetic_flux", magnetic_flux },
+    { "magnetic_flux_density", magnetic_flux_density },
+    { "inductance", inductance },
+    { "luminous_flux", luminous_flux },
+    { "illuminance", illuminance },
+    { "activity_referred_to_a_radionuclide", activity_referred_to_a_radionuclide },
+    { "absorbed_dose", absorbed_dose },
+    { "dose_equivalent", dose_equivalent },
+    { "catalytic_activity", catalytic_activity },
+    { "velocity", velocity },
+    { "area", area },
+    { "volume", volume },
+    { "density", density },
+    { "massic_energy", massic_energy },
+    { "entropy", entropy },
+    { "massic_entropy", massic_entropy },
+    { "temperature", temperature },
+    { "dimensionless", dimensionless },
+    { "stress", stress },
+    { "amount_of_heat", amount_of_heat },
+    { "power", power },
+    { "radiant_flux", radiant_flux },
+    { "amount_of_electricity", amount_of_electricity },
+    { "electromotive_force", electromotive_force },
+    { "celsius_temperature", celsius_temperature },
+    { "specific_energy_imparted", specific_energy_imparted },
+    { "kerma", kerma },
+    { "ambient_dose_equivalent", ambient_dose_equivalent },
+    { "directional_dose_equivalent", directional_dose_equivalent },
+    { "personal_dose_equivalent", personal_dose_equivalent },
+    { "heat_capacity", heat_capacity },
+    { "massic_heat_capacity", massic_heat_capacity },
+    { "massic_enthalpy", massic_enthalpy },
 
 };
     inline const auto
 values_to_names = std::unordered_map <dimension_t, std::string>
 {
-    { none,  "none" },
-    { length,  "length" },
-    { mass,  "mass" },
-    { time,  "time" },
-    { electric_current,  "electric_current" },
-    { thermodynamic_temperature,  "thermodynamic_temperature" },
-    { amount_of_substance,  "amount_of_substance" },
-    { luminous_intensity,  "luminous_intensity" },
-    { frequency,  "frequency" },
-    { force,  "force" },
-    { pressure,  "pressure" },
-    { energy,  "energy" },
-    { work,  "work" },
-    { electric_charge,  "electric_charge" },
-    { electric_potential_difference,  "electric_potential_difference" },
-    { capacitance,  "capacitance" },
-    { electric_resistance,  "electric_resistance" },
-    { electric_conductance,  "electric_conductance" },
-    { magnetic_flux,  "magnetic_flux" },
-    { magnetic_flux_density,  "magnetic_flux_density" },
-    { inductance,  "inductance" },
-    { luminous_flux,  "luminous_flux" },
-    { illuminance,  "illuminance" },
-    { activity_referred_to_a_radionuclide,  "activity_referred_to_a_radionuclide" },
-    { absorbed_dose,  "absorbed_dose" },
-    { dose_equivalent,  "dose_equivalent" },
-    { catalytic_activity,  "catalytic_activity" },
-    { velocity,  "velocity" },
-    { area,  "area" },
-    { volume,  "volume" },
-    { density,  "density" },
-    { massic_energy,  "massic_energy" },
-    { entropy,  "entropy" },
-    { massic_entropy,  "massic_entropy" },
-    { temperature,  "temperature" },
-    { dimensionless,  "dimensionless" },
-    { stress,  "stress" },
-    { amount_of_heat,  "amount_of_heat" },
-    { power,  "power" },
-    { radiant_flux,  "radiant_flux" },
-    { amount_of_electricity,  "amount_of_electricity" },
-    { electromotive_force,  "electromotive_force" },
-    { celsius_temperature,  "celsius_temperature" },
-    { specific_energy_imparted,  "specific_energy_imparted" },
-    { kerma,  "kerma" },
-    { ambient_dose_equivalent,  "ambient_dose_equivalent" },
-    { directional_dose_equivalent,  "directional_dose_equivalent" },
-    { personal_dose_equivalent,  "personal_dose_equivalent" },
-    { heat_capacity,  "heat_capacity" },
-    { massic_heat_capacity,  "massic_heat_capacity" },
-    { massic_enthalpy,  "massic_enthalpy" },
+    { none, "none" },
+    { length, "length" },
+    { mass, "mass" },
+    { time, "time" },
+    { electric_current, "electric_current" },
+    { thermodynamic_temperature, "thermodynamic_temperature" },
+    { amount_of_substance, "amount_of_substance" },
+    { luminous_intensity, "luminous_intensity" },
+    { frequency, "frequency" },
+    { force, "force" },
+    { pressure, "pressure" },
+    { energy, "energy" },
+    { work, "work" },
+    { electric_charge, "electric_charge" },
+    { electric_potential_difference, "electric_potential_difference" },
+    { capacitance, "capacitance" },
+    { electric_resistance, "electric_resistance" },
+    { electric_conductance, "electric_conductance" },
+    { magnetic_flux, "magnetic_flux" },
+    { magnetic_flux_density, "magnetic_flux_density" },
+    { inductance, "inductance" },
+    { luminous_flux, "luminous_flux" },
+    { illuminance, "illuminance" },
+    { activity_referred_to_a_radionuclide, "activity_referred_to_a_radionuclide" },
+    { absorbed_dose, "absorbed_dose" },
+    { dose_equivalent, "dose_equivalent" },
+    { catalytic_activity, "catalytic_activity" },
+    { velocity, "velocity" },
+    { area, "area" },
+    { volume, "volume" },
+    { density, "density" },
+    { massic_energy, "massic_energy" },
+    { entropy, "entropy" },
+    { massic_entropy, "massic_entropy" },
+    { temperature, "temperature" },
+    { dimensionless, "dimensionless" },
+    { stress, "stress" },
+    { amount_of_heat, "amount_of_heat" },
+    { power, "power" },
+    { radiant_flux, "radiant_flux" },
+    { amount_of_electricity, "amount_of_electricity" },
+    { electromotive_force, "electromotive_force" },
+    { celsius_temperature, "celsius_temperature" },
+    { specific_energy_imparted, "specific_energy_imparted" },
+    { kerma, "kerma" },
+    { ambient_dose_equivalent, "ambient_dose_equivalent" },
+    { directional_dose_equivalent, "directional_dose_equivalent" },
+    { personal_dose_equivalent, "personal_dose_equivalent" },
+    { heat_capacity, "heat_capacity" },
+    { massic_heat_capacity, "massic_heat_capacity" },
+    { massic_enthalpy, "massic_enthalpy" },
 
 };
 
@@ -1289,7 +1289,7 @@ dimensions_to_units = std::unordered_map <dimension_t, std::vector <any_quantity
 literals
 {
 
-    constexpr auto operator ""_m (long double x) noexcept { return x * unit::metre <long double>; }
+    constexpr auto operator ""_m   (long double x) noexcept { return x * unit::metre <long double>; }
     constexpr auto operator ""_Em  (long double x) noexcept { return x * unit::exametre <long double>; }
     constexpr auto operator ""_Pm  (long double x) noexcept { return x * unit::petametre <long double>; }
     constexpr auto operator ""_Tm  (long double x) noexcept { return x * unit::terametre <long double>; }
@@ -1307,7 +1307,7 @@ literals
     constexpr auto operator ""_fm  (long double x) noexcept { return x * unit::femtometre <long double>; }
     constexpr auto operator ""_am  (long double x) noexcept { return x * unit::attometre <long double>; }
 
-    constexpr auto operator ""_g (long double x) noexcept { return x * unit::gram <long double>; }
+    constexpr auto operator ""_g   (long double x) noexcept { return x * unit::gram <long double>; }
     constexpr auto operator ""_Eg  (long double x) noexcept { return x * unit::exagram <long double>; }
     constexpr auto operator ""_Pg  (long double x) noexcept { return x * unit::petagram <long double>; }
     constexpr auto operator ""_Tg  (long double x) noexcept { return x * unit::teragram <long double>; }
@@ -1325,7 +1325,7 @@ literals
     constexpr auto operator ""_fg  (long double x) noexcept { return x * unit::femtogram <long double>; }
     constexpr auto operator ""_ag  (long double x) noexcept { return x * unit::attogram <long double>; }
 
-    constexpr auto operator ""_s (long double x) noexcept { return x * unit::second <long double>; }
+    constexpr auto operator ""_s   (long double x) noexcept { return x * unit::second <long double>; }
     constexpr auto operator ""_Es  (long double x) noexcept { return x * unit::exasecond <long double>; }
     constexpr auto operator ""_Ps  (long double x) noexcept { return x * unit::petasecond <long double>; }
     constexpr auto operator ""_Ts  (long double x) noexcept { return x * unit::terasecond <long double>; }
@@ -1343,7 +1343,7 @@ literals
     constexpr auto operator ""_fs  (long double x) noexcept { return x * unit::femtosecond <long double>; }
     constexpr auto operator ""_as  (long double x) noexcept { return x * unit::attosecond <long double>; }
 
-    constexpr auto operator ""_A (long double x) noexcept { return x * unit::ampere <long double>; }
+    constexpr auto operator ""_A   (long double x) noexcept { return x * unit::ampere <long double>; }
     constexpr auto operator ""_EA  (long double x) noexcept { return x * unit::exaampere <long double>; }
     constexpr auto operator ""_PA  (long double x) noexcept { return x * unit::petaampere <long double>; }
     constexpr auto operator ""_TA  (long double x) noexcept { return x * unit::teraampere <long double>; }
@@ -1361,7 +1361,7 @@ literals
     constexpr auto operator ""_fA  (long double x) noexcept { return x * unit::femtoampere <long double>; }
     constexpr auto operator ""_aA  (long double x) noexcept { return x * unit::attoampere <long double>; }
 
-    constexpr auto operator ""_K (long double x) noexcept { return x * unit::kelvin <long double>; }
+    constexpr auto operator ""_K   (long double x) noexcept { return x * unit::kelvin <long double>; }
     constexpr auto operator ""_EK  (long double x) noexcept { return x * unit::exakelvin <long double>; }
     constexpr auto operator ""_PK  (long double x) noexcept { return x * unit::petakelvin <long double>; }
     constexpr auto operator ""_TK  (long double x) noexcept { return x * unit::terakelvin <long double>; }
@@ -1379,7 +1379,7 @@ literals
     constexpr auto operator ""_fK  (long double x) noexcept { return x * unit::femtokelvin <long double>; }
     constexpr auto operator ""_aK  (long double x) noexcept { return x * unit::attokelvin <long double>; }
 
-    constexpr auto operator ""_mol (long double x) noexcept { return x * unit::mole <long double>; }
+    constexpr auto operator ""_mol   (long double x) noexcept { return x * unit::mole <long double>; }
     constexpr auto operator ""_Emol  (long double x) noexcept { return x * unit::examole <long double>; }
     constexpr auto operator ""_Pmol  (long double x) noexcept { return x * unit::petamole <long double>; }
     constexpr auto operator ""_Tmol  (long double x) noexcept { return x * unit::teramole <long double>; }
@@ -1397,7 +1397,7 @@ literals
     constexpr auto operator ""_fmol  (long double x) noexcept { return x * unit::femtomole <long double>; }
     constexpr auto operator ""_amol  (long double x) noexcept { return x * unit::attomole <long double>; }
 
-    constexpr auto operator ""_cd (long double x) noexcept { return x * unit::candela <long double>; }
+    constexpr auto operator ""_cd   (long double x) noexcept { return x * unit::candela <long double>; }
     constexpr auto operator ""_Ecd  (long double x) noexcept { return x * unit::exacandela <long double>; }
     constexpr auto operator ""_Pcd  (long double x) noexcept { return x * unit::petacandela <long double>; }
     constexpr auto operator ""_Tcd  (long double x) noexcept { return x * unit::teracandela <long double>; }
@@ -1415,7 +1415,7 @@ literals
     constexpr auto operator ""_fcd  (long double x) noexcept { return x * unit::femtocandela <long double>; }
     constexpr auto operator ""_acd  (long double x) noexcept { return x * unit::attocandela <long double>; }
 
-    constexpr auto operator ""_Hz (long double x) noexcept { return x * unit::hertz <long double>; }
+    constexpr auto operator ""_Hz   (long double x) noexcept { return x * unit::hertz <long double>; }
     constexpr auto operator ""_EHz  (long double x) noexcept { return x * unit::exahertz <long double>; }
     constexpr auto operator ""_PHz  (long double x) noexcept { return x * unit::petahertz <long double>; }
     constexpr auto operator ""_THz  (long double x) noexcept { return x * unit::terahertz <long double>; }
@@ -1433,7 +1433,7 @@ literals
     constexpr auto operator ""_fHz  (long double x) noexcept { return x * unit::femtohertz <long double>; }
     constexpr auto operator ""_aHz  (long double x) noexcept { return x * unit::attohertz <long double>; }
 
-    constexpr auto operator ""_N (long double x) noexcept { return x * unit::newton <long double>; }
+    constexpr auto operator ""_N   (long double x) noexcept { return x * unit::newton <long double>; }
     constexpr auto operator ""_EN  (long double x) noexcept { return x * unit::exanewton <long double>; }
     constexpr auto operator ""_PN  (long double x) noexcept { return x * unit::petanewton <long double>; }
     constexpr auto operator ""_TN  (long double x) noexcept { return x * unit::teranewton <long double>; }
@@ -1451,7 +1451,7 @@ literals
     constexpr auto operator ""_fN  (long double x) noexcept { return x * unit::femtonewton <long double>; }
     constexpr auto operator ""_aN  (long double x) noexcept { return x * unit::attonewton <long double>; }
 
-    constexpr auto operator ""_Pa (long double x) noexcept { return x * unit::pascal <long double>; }
+    constexpr auto operator ""_Pa   (long double x) noexcept { return x * unit::pascal <long double>; }
     constexpr auto operator ""_EPa  (long double x) noexcept { return x * unit::exapascal <long double>; }
     constexpr auto operator ""_PPa  (long double x) noexcept { return x * unit::petapascal <long double>; }
     constexpr auto operator ""_TPa  (long double x) noexcept { return x * unit::terapascal <long double>; }
@@ -1469,7 +1469,7 @@ literals
     constexpr auto operator ""_fPa  (long double x) noexcept { return x * unit::femtopascal <long double>; }
     constexpr auto operator ""_aPa  (long double x) noexcept { return x * unit::attopascal <long double>; }
 
-    constexpr auto operator ""_bar (long double x) noexcept { return x * unit::bar <long double>; }
+    constexpr auto operator ""_bar   (long double x) noexcept { return x * unit::bar <long double>; }
     constexpr auto operator ""_Ebar  (long double x) noexcept { return x * unit::exabar <long double>; }
     constexpr auto operator ""_Pbar  (long double x) noexcept { return x * unit::petabar <long double>; }
     constexpr auto operator ""_Tbar  (long double x) noexcept { return x * unit::terabar <long double>; }
@@ -1487,7 +1487,7 @@ literals
     constexpr auto operator ""_fbar  (long double x) noexcept { return x * unit::femtobar <long double>; }
     constexpr auto operator ""_abar  (long double x) noexcept { return x * unit::attobar <long double>; }
 
-    constexpr auto operator ""_J (long double x) noexcept { return x * unit::joule <long double>; }
+    constexpr auto operator ""_J   (long double x) noexcept { return x * unit::joule <long double>; }
     constexpr auto operator ""_EJ  (long double x) noexcept { return x * unit::exajoule <long double>; }
     constexpr auto operator ""_PJ  (long double x) noexcept { return x * unit::petajoule <long double>; }
     constexpr auto operator ""_TJ  (long double x) noexcept { return x * unit::terajoule <long double>; }
@@ -1505,7 +1505,7 @@ literals
     constexpr auto operator ""_fJ  (long double x) noexcept { return x * unit::femtojoule <long double>; }
     constexpr auto operator ""_aJ  (long double x) noexcept { return x * unit::attojoule <long double>; }
 
-    constexpr auto operator ""_W (long double x) noexcept { return x * unit::watt <long double>; }
+    constexpr auto operator ""_W   (long double x) noexcept { return x * unit::watt <long double>; }
     constexpr auto operator ""_EW  (long double x) noexcept { return x * unit::exawatt <long double>; }
     constexpr auto operator ""_PW  (long double x) noexcept { return x * unit::petawatt <long double>; }
     constexpr auto operator ""_TW  (long double x) noexcept { return x * unit::terawatt <long double>; }
@@ -1523,7 +1523,7 @@ literals
     constexpr auto operator ""_fW  (long double x) noexcept { return x * unit::femtowatt <long double>; }
     constexpr auto operator ""_aW  (long double x) noexcept { return x * unit::attowatt <long double>; }
 
-    constexpr auto operator ""_C (long double x) noexcept { return x * unit::coulomb <long double>; }
+    constexpr auto operator ""_C   (long double x) noexcept { return x * unit::coulomb <long double>; }
     constexpr auto operator ""_EC  (long double x) noexcept { return x * unit::exacoulomb <long double>; }
     constexpr auto operator ""_PC  (long double x) noexcept { return x * unit::petacoulomb <long double>; }
     constexpr auto operator ""_TC  (long double x) noexcept { return x * unit::teracoulomb <long double>; }
@@ -1541,7 +1541,7 @@ literals
     constexpr auto operator ""_fC  (long double x) noexcept { return x * unit::femtocoulomb <long double>; }
     constexpr auto operator ""_aC  (long double x) noexcept { return x * unit::attocoulomb <long double>; }
 
-    constexpr auto operator ""_V (long double x) noexcept { return x * unit::volt <long double>; }
+    constexpr auto operator ""_V   (long double x) noexcept { return x * unit::volt <long double>; }
     constexpr auto operator ""_EV  (long double x) noexcept { return x * unit::exavolt <long double>; }
     constexpr auto operator ""_PV  (long double x) noexcept { return x * unit::petavolt <long double>; }
     constexpr auto operator ""_TV  (long double x) noexcept { return x * unit::teravolt <long double>; }
@@ -1559,7 +1559,7 @@ literals
     constexpr auto operator ""_fV  (long double x) noexcept { return x * unit::femtovolt <long double>; }
     constexpr auto operator ""_aV  (long double x) noexcept { return x * unit::attovolt <long double>; }
 
-    constexpr auto operator ""_F (long double x) noexcept { return x * unit::farad <long double>; }
+    constexpr auto operator ""_F   (long double x) noexcept { return x * unit::farad <long double>; }
     constexpr auto operator ""_EF  (long double x) noexcept { return x * unit::exafarad <long double>; }
     constexpr auto operator ""_PF  (long double x) noexcept { return x * unit::petafarad <long double>; }
     constexpr auto operator ""_TF  (long double x) noexcept { return x * unit::terafarad <long double>; }
@@ -1577,7 +1577,7 @@ literals
     constexpr auto operator ""_fF  (long double x) noexcept { return x * unit::femtofarad <long double>; }
     constexpr auto operator ""_aF  (long double x) noexcept { return x * unit::attofarad <long double>; }
 
-    constexpr auto operator ""_S (long double x) noexcept { return x * unit::siemens <long double>; }
+    constexpr auto operator ""_S   (long double x) noexcept { return x * unit::siemens <long double>; }
     constexpr auto operator ""_ES  (long double x) noexcept { return x * unit::exasiemens <long double>; }
     constexpr auto operator ""_PS  (long double x) noexcept { return x * unit::petasiemens <long double>; }
     constexpr auto operator ""_TS  (long double x) noexcept { return x * unit::terasiemens <long double>; }
@@ -1595,7 +1595,7 @@ literals
     constexpr auto operator ""_fS  (long double x) noexcept { return x * unit::femtosiemens <long double>; }
     constexpr auto operator ""_aS  (long double x) noexcept { return x * unit::attosiemens <long double>; }
 
-    constexpr auto operator ""_Wb (long double x) noexcept { return x * unit::weber <long double>; }
+    constexpr auto operator ""_Wb   (long double x) noexcept { return x * unit::weber <long double>; }
     constexpr auto operator ""_EWb  (long double x) noexcept { return x * unit::exaweber <long double>; }
     constexpr auto operator ""_PWb  (long double x) noexcept { return x * unit::petaweber <long double>; }
     constexpr auto operator ""_TWb  (long double x) noexcept { return x * unit::teraweber <long double>; }
@@ -1613,7 +1613,7 @@ literals
     constexpr auto operator ""_fWb  (long double x) noexcept { return x * unit::femtoweber <long double>; }
     constexpr auto operator ""_aWb  (long double x) noexcept { return x * unit::attoweber <long double>; }
 
-    constexpr auto operator ""_T (long double x) noexcept { return x * unit::tesla <long double>; }
+    constexpr auto operator ""_T   (long double x) noexcept { return x * unit::tesla <long double>; }
     constexpr auto operator ""_ET  (long double x) noexcept { return x * unit::exatesla <long double>; }
     constexpr auto operator ""_PT  (long double x) noexcept { return x * unit::petatesla <long double>; }
     constexpr auto operator ""_TT  (long double x) noexcept { return x * unit::teratesla <long double>; }
@@ -1631,7 +1631,7 @@ literals
     constexpr auto operator ""_fT  (long double x) noexcept { return x * unit::femtotesla <long double>; }
     constexpr auto operator ""_aT  (long double x) noexcept { return x * unit::attotesla <long double>; }
 
-    constexpr auto operator ""_H (long double x) noexcept { return x * unit::henry <long double>; }
+    constexpr auto operator ""_H   (long double x) noexcept { return x * unit::henry <long double>; }
     constexpr auto operator ""_EH  (long double x) noexcept { return x * unit::exahenry <long double>; }
     constexpr auto operator ""_PH  (long double x) noexcept { return x * unit::petahenry <long double>; }
     constexpr auto operator ""_TH  (long double x) noexcept { return x * unit::terahenry <long double>; }
@@ -1649,7 +1649,7 @@ literals
     constexpr auto operator ""_fH  (long double x) noexcept { return x * unit::femtohenry <long double>; }
     constexpr auto operator ""_aH  (long double x) noexcept { return x * unit::attohenry <long double>; }
 
-    constexpr auto operator ""_lu (long double x) noexcept { return x * unit::lumen <long double>; }
+    constexpr auto operator ""_lu   (long double x) noexcept { return x * unit::lumen <long double>; }
     constexpr auto operator ""_Elu  (long double x) noexcept { return x * unit::exalumen <long double>; }
     constexpr auto operator ""_Plu  (long double x) noexcept { return x * unit::petalumen <long double>; }
     constexpr auto operator ""_Tlu  (long double x) noexcept { return x * unit::teralumen <long double>; }
@@ -1667,7 +1667,7 @@ literals
     constexpr auto operator ""_flu  (long double x) noexcept { return x * unit::femtolumen <long double>; }
     constexpr auto operator ""_alu  (long double x) noexcept { return x * unit::attolumen <long double>; }
 
-    constexpr auto operator ""_lx (long double x) noexcept { return x * unit::lux <long double>; }
+    constexpr auto operator ""_lx   (long double x) noexcept { return x * unit::lux <long double>; }
     constexpr auto operator ""_Elx  (long double x) noexcept { return x * unit::exalux <long double>; }
     constexpr auto operator ""_Plx  (long double x) noexcept { return x * unit::petalux <long double>; }
     constexpr auto operator ""_Tlx  (long double x) noexcept { return x * unit::teralux <long double>; }
@@ -1685,7 +1685,7 @@ literals
     constexpr auto operator ""_flx  (long double x) noexcept { return x * unit::femtolux <long double>; }
     constexpr auto operator ""_alx  (long double x) noexcept { return x * unit::attolux <long double>; }
 
-    constexpr auto operator ""_Bq (long double x) noexcept { return x * unit::becquerel <long double>; }
+    constexpr auto operator ""_Bq   (long double x) noexcept { return x * unit::becquerel <long double>; }
     constexpr auto operator ""_EBq  (long double x) noexcept { return x * unit::exabecquerel <long double>; }
     constexpr auto operator ""_PBq  (long double x) noexcept { return x * unit::petabecquerel <long double>; }
     constexpr auto operator ""_TBq  (long double x) noexcept { return x * unit::terabecquerel <long double>; }
@@ -1703,7 +1703,7 @@ literals
     constexpr auto operator ""_fBq  (long double x) noexcept { return x * unit::femtobecquerel <long double>; }
     constexpr auto operator ""_aBq  (long double x) noexcept { return x * unit::attobecquerel <long double>; }
 
-    constexpr auto operator ""_Gy (long double x) noexcept { return x * unit::gray <long double>; }
+    constexpr auto operator ""_Gy   (long double x) noexcept { return x * unit::gray <long double>; }
     constexpr auto operator ""_EGy  (long double x) noexcept { return x * unit::exagray <long double>; }
     constexpr auto operator ""_PGy  (long double x) noexcept { return x * unit::petagray <long double>; }
     constexpr auto operator ""_TGy  (long double x) noexcept { return x * unit::teragray <long double>; }
@@ -1721,7 +1721,7 @@ literals
     constexpr auto operator ""_fGy  (long double x) noexcept { return x * unit::femtogray <long double>; }
     constexpr auto operator ""_aGy  (long double x) noexcept { return x * unit::attogray <long double>; }
 
-    constexpr auto operator ""_Sv (long double x) noexcept { return x * unit::sievert <long double>; }
+    constexpr auto operator ""_Sv   (long double x) noexcept { return x * unit::sievert <long double>; }
     constexpr auto operator ""_ESv  (long double x) noexcept { return x * unit::exasievert <long double>; }
     constexpr auto operator ""_PSv  (long double x) noexcept { return x * unit::petasievert <long double>; }
     constexpr auto operator ""_TSv  (long double x) noexcept { return x * unit::terasievert <long double>; }
@@ -1739,7 +1739,7 @@ literals
     constexpr auto operator ""_fSv  (long double x) noexcept { return x * unit::femtosievert <long double>; }
     constexpr auto operator ""_aSv  (long double x) noexcept { return x * unit::attosievert <long double>; }
 
-    constexpr auto operator ""_kat (long double x) noexcept { return x * unit::katal <long double>; }
+    constexpr auto operator ""_kat   (long double x) noexcept { return x * unit::katal <long double>; }
     constexpr auto operator ""_Ekat  (long double x) noexcept { return x * unit::exakatal <long double>; }
     constexpr auto operator ""_Pkat  (long double x) noexcept { return x * unit::petakatal <long double>; }
     constexpr auto operator ""_Tkat  (long double x) noexcept { return x * unit::terakatal <long double>; }

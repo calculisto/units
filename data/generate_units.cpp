@@ -114,11 +114,11 @@ names_to_values = std::unordered_map <std::string, dimension_t>
 )";
     for (auto&& [dim, def, uni]: data)
     {
-        out << format ("    {{ \"{0}\",  {0} }},\n", dim);
+        out << format ("    {{ \"{0}\", {0} }},\n", dim);
     }
     for (auto&& [dim, def]: aliases)
     {
-        out << format ("    {{ \"{0}\",  {0} }},\n", dim);
+        out << format ("    {{ \"{0}\", {0} }},\n", dim);
     }
 out << R"(
 };
@@ -128,11 +128,11 @@ values_to_names = std::unordered_map <dimension_t, std::string>
 )";
     for (auto&& [dim, def, uni]: data)
     {
-        out << format ("    {{ {0},  \"{0}\" }},\n", dim);
+        out << format ("    {{ {0}, \"{0}\" }},\n", dim);
     }
     for (auto&& [dim, def]: aliases)
     {
-        out << format ("    {{ {0},  \"{0}\" }},\n", dim);
+        out << format ("    {{ {0}, \"{0}\" }},\n", dim);
     }
 out << R"(
 };
@@ -440,7 +440,7 @@ literals
         if (u_nam == "ohm" || u_nam == "none") continue;
         out << format (
 R"(
-    constexpr auto operator ""_{0} (long double x) noexcept {{ return x * unit::{1} <long double>; }}
+    constexpr auto operator ""_{0}   (long double x) noexcept {{ return x * unit::{1} <long double>; }}
     constexpr auto operator ""_E{0}  (long double x) noexcept {{ return x * unit::exa{1} <long double>; }}
     constexpr auto operator ""_P{0}  (long double x) noexcept {{ return x * unit::peta{1} <long double>; }}
     constexpr auto operator ""_T{0}  (long double x) noexcept {{ return x * unit::tera{1} <long double>; }}

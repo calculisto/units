@@ -10,11 +10,7 @@ Requirements
 ------------
 
 - The `fmtlib/fmt library <https://github.com/fmtlib/fmt>`_.
-
-Optionally:
-
 - The `isto::hash_combine library <https://github.com/le-migou/hash_combine>`_.
-  E.g., to use quantities as keys in standard unordered containers.
 
 To run the tests:
 

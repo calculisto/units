@@ -1,6 +1,3 @@
-// Copyright (c) 2018- Institut des Science de la Terre (ISTO)
-// Author: Emmanuel LE TRONG <emmanuel.le-trong@cnrs-orleans.fr>
-///@file
 #pragma once
 #include "dimension.hpp"
 #include <cmath>
