@@ -63,4 +63,8 @@ TEST_CASE("units")
         c = a / b;
         static_assert (std::is_same_v <decltype (c), const double>);
     }
+    SUBCASE("concepts")
+    {
+        static_assert (pressure <decltype (unit::pascal <>)>);
+    }
 };

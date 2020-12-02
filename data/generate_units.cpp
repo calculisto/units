@@ -138,8 +138,9 @@ out << R"(
 };
 
 } // namespace dimension
+
 )";
-    out << "template <class T> using dimensionless_t = quantity_t <dimension::none, T>;\n";
+
     for (auto&& [dim, def, uni]: data)
     {
         out << format ("template <class T> using {0}_t = quantity_t <dimension::{0}, T>;\n", dim);
@@ -148,6 +149,17 @@ out << R"(
     {
         out << format ("template <class T> using {0}_t = quantity_t <dimension::{0}, T>;\n", dim);
     }
+    out << "\n";
+
+    for (auto&& [dim, def, uni]: data)
+    {
+        out << format ("template <class T> concept {0} = T::dimension == dimension::{0};\n", dim);
+    }
+    for (auto&& [dim, def]: aliases)
+    {
+        out << format ("template <class T> concept {0} = T::dimension == dimension::{0};\n", dim);
+    }
+
 out << R"(
     namespace
 prefix

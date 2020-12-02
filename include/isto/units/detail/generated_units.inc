@@ -169,7 +169,7 @@ values_to_names = std::unordered_map <dimension_t, std::string>
 };
 
 } // namespace dimension
-template <class T> using dimensionless_t = quantity_t <dimension::none, T>;
+
 template <class T> using none_t = quantity_t <dimension::none, T>;
 template <class T> using length_t = quantity_t <dimension::length, T>;
 template <class T> using mass_t = quantity_t <dimension::mass, T>;
@@ -221,6 +221,58 @@ template <class T> using personal_dose_equivalent_t = quantity_t <dimension::per
 template <class T> using heat_capacity_t = quantity_t <dimension::heat_capacity, T>;
 template <class T> using massic_heat_capacity_t = quantity_t <dimension::massic_heat_capacity, T>;
 template <class T> using massic_enthalpy_t = quantity_t <dimension::massic_enthalpy, T>;
+
+template <class T> concept none = T::dimension == dimension::none;
+template <class T> concept length = T::dimension == dimension::length;
+template <class T> concept mass = T::dimension == dimension::mass;
+template <class T> concept time = T::dimension == dimension::time;
+template <class T> concept electric_current = T::dimension == dimension::electric_current;
+template <class T> concept thermodynamic_temperature = T::dimension == dimension::thermodynamic_temperature;
+template <class T> concept amount_of_substance = T::dimension == dimension::amount_of_substance;
+template <class T> concept luminous_intensity = T::dimension == dimension::luminous_intensity;
+template <class T> concept frequency = T::dimension == dimension::frequency;
+template <class T> concept force = T::dimension == dimension::force;
+template <class T> concept pressure = T::dimension == dimension::pressure;
+template <class T> concept energy = T::dimension == dimension::energy;
+template <class T> concept work = T::dimension == dimension::work;
+template <class T> concept electric_charge = T::dimension == dimension::electric_charge;
+template <class T> concept electric_potential_difference = T::dimension == dimension::electric_potential_difference;
+template <class T> concept capacitance = T::dimension == dimension::capacitance;
+template <class T> concept electric_resistance = T::dimension == dimension::electric_resistance;
+template <class T> concept electric_conductance = T::dimension == dimension::electric_conductance;
+template <class T> concept magnetic_flux = T::dimension == dimension::magnetic_flux;
+template <class T> concept magnetic_flux_density = T::dimension == dimension::magnetic_flux_density;
+template <class T> concept inductance = T::dimension == dimension::inductance;
+template <class T> concept luminous_flux = T::dimension == dimension::luminous_flux;
+template <class T> concept illuminance = T::dimension == dimension::illuminance;
+template <class T> concept activity_referred_to_a_radionuclide = T::dimension == dimension::activity_referred_to_a_radionuclide;
+template <class T> concept absorbed_dose = T::dimension == dimension::absorbed_dose;
+template <class T> concept dose_equivalent = T::dimension == dimension::dose_equivalent;
+template <class T> concept catalytic_activity = T::dimension == dimension::catalytic_activity;
+template <class T> concept velocity = T::dimension == dimension::velocity;
+template <class T> concept area = T::dimension == dimension::area;
+template <class T> concept volume = T::dimension == dimension::volume;
+template <class T> concept density = T::dimension == dimension::density;
+template <class T> concept massic_energy = T::dimension == dimension::massic_energy;
+template <class T> concept entropy = T::dimension == dimension::entropy;
+template <class T> concept massic_entropy = T::dimension == dimension::massic_entropy;
+template <class T> concept temperature = T::dimension == dimension::temperature;
+template <class T> concept dimensionless = T::dimension == dimension::dimensionless;
+template <class T> concept stress = T::dimension == dimension::stress;
+template <class T> concept amount_of_heat = T::dimension == dimension::amount_of_heat;
+template <class T> concept power = T::dimension == dimension::power;
+template <class T> concept radiant_flux = T::dimension == dimension::radiant_flux;
+template <class T> concept amount_of_electricity = T::dimension == dimension::amount_of_electricity;
+template <class T> concept electromotive_force = T::dimension == dimension::electromotive_force;
+template <class T> concept celsius_temperature = T::dimension == dimension::celsius_temperature;
+template <class T> concept specific_energy_imparted = T::dimension == dimension::specific_energy_imparted;
+template <class T> concept kerma = T::dimension == dimension::kerma;
+template <class T> concept ambient_dose_equivalent = T::dimension == dimension::ambient_dose_equivalent;
+template <class T> concept directional_dose_equivalent = T::dimension == dimension::directional_dose_equivalent;
+template <class T> concept personal_dose_equivalent = T::dimension == dimension::personal_dose_equivalent;
+template <class T> concept heat_capacity = T::dimension == dimension::heat_capacity;
+template <class T> concept massic_heat_capacity = T::dimension == dimension::massic_heat_capacity;
+template <class T> concept massic_enthalpy = T::dimension == dimension::massic_enthalpy;
 
     namespace
 prefix
