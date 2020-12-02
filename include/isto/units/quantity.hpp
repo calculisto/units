@@ -61,7 +61,6 @@ quantity_conversion_error
 } // namespace isto::units
 
 
-#ifdef ISTO_UNITS_HAS_HASH_COMBINE
     namespace 
 std
 {
@@ -77,7 +76,6 @@ std
         }
     };
 } // namespace std
-#endif
 
     namespace
 isto::units
@@ -269,6 +267,9 @@ quantity_t
 
     template <dimension_t D, class T>
 quantity_t (any_quantity_t <T> const&) -> quantity_t <D, T>;
+
+    template <dimension_t D, class T>
+quantity_t (T&&) -> quantity_t <D, T>;
 
 // A trait
     template <class ValueType>
