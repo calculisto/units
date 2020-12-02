@@ -222,6 +222,9 @@ template <class T> using heat_capacity_t = quantity_t <dimension::heat_capacity,
 template <class T> using massic_heat_capacity_t = quantity_t <dimension::massic_heat_capacity, T>;
 template <class T> using massic_enthalpy_t = quantity_t <dimension::massic_enthalpy, T>;
 
+    namespace
+concepts
+{
 template <class T> concept none = T::dimension == dimension::none;
 template <class T> concept length = T::dimension == dimension::length;
 template <class T> concept mass = T::dimension == dimension::mass;
@@ -273,6 +276,7 @@ template <class T> concept personal_dose_equivalent = T::dimension == dimension:
 template <class T> concept heat_capacity = T::dimension == dimension::heat_capacity;
 template <class T> concept massic_heat_capacity = T::dimension == dimension::massic_heat_capacity;
 template <class T> concept massic_enthalpy = T::dimension == dimension::massic_enthalpy;
+} // namespace concepts
 
     namespace
 prefix

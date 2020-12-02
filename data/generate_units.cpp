@@ -150,7 +150,8 @@ out << R"(
         out << format ("template <class T> using {0}_t = quantity_t <dimension::{0}, T>;\n", dim);
     }
     out << "\n";
-
+    
+    out << "    namespace\nconcepts\n{\n";
     for (auto&& [dim, def, uni]: data)
     {
         out << format ("template <class T> concept {0} = T::dimension == dimension::{0};\n", dim);
@@ -159,6 +160,7 @@ out << R"(
     {
         out << format ("template <class T> concept {0} = T::dimension == dimension::{0};\n", dim);
     }
+    out << "} // namespace concepts\n";
 
 out << R"(
     namespace
