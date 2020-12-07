@@ -1,7 +1,9 @@
 FMTLIB_HEADERS=../../external/fmtlib/fmt/include
 FMTLIB_LIBRARY=../../external/fmtlib/fmt/build
 DOCTEST_HEADERS=../../external/onqtam/doctest
-DEPENDENCIES_HEADERS=../../external/isto/hash_combine/include
+DEPENDENCIES_HEADERS=\
+	../../external/isto/hash_combine/include \
+	../../external/taocpp/pegtl/include
 
 
 PROJECT=units
