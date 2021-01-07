@@ -8,7 +8,7 @@
 isto::units
 {
     using namespace tao::pegtl;
-    namespace 
+    namespace
 peg
 {
         template <class ValueType>
@@ -29,7 +29,7 @@ peg
         template <class Rule>
         struct
     action
-        : nothing <Rule> 
+        : nothing <Rule>
     {};
 
         namespace
@@ -114,8 +114,6 @@ ISTO_QUANTITY_UNIT_PARSER_ACTION_PREFIX(atto)
         struct kelvin            : one    <'K'>            {};
         struct mole              : string <'m', 'o', 'l'>  {};
         struct candela           : string <'c', 'd'>       {};
-        struct radian            : string <'r', 'a', 'd'>  {};
-        struct steradian         : string <'s', 'r'>       {};
         struct hertz             : string <'H', 'z'>       {};
         struct newton            : one    <'N'>            {};
         struct pascal            : string <'P', 'a'>       {};
@@ -137,14 +135,14 @@ ISTO_QUANTITY_UNIT_PARSER_ACTION_PREFIX(atto)
         struct katal             : string <'k', 'a', 't'>  {};
         struct minute            : string <'m', 'i', 'n'>  {};
         struct hour              : one    <'h'>            {};
-        // Parsing ambiguity: cd -> candela / centi-day
-        // struct day               : one    <'d'>            {};
-        struct hectare           : string <'h', 'a'>       {};
-        struct litre             : one    <'l', 'L'>       {};
-        struct tonne             : one    <'t'>            {};
-        // Parsing ambiguity: dau -> deci-au, dalton-error, deca-error
-        // struct astronomical_unit : string <'a', 'u'>       {};
         struct bar               : string <'b', 'a', 'r'>  {};
+        // struct day               : one    <'d'>            {}; // Parsing ambiguity: cd -> candela / centi-day
+        // struct astronomical_unit : string <'a', 'u'>       {}; // Parsing ambiguity: dau -> deci-au, dalton-error, deca-error
+        // struct hectare           : string <'h', 'a'>       {};
+        // struct litre             : one    <'l', 'L'>       {};
+        // struct tonne             : one    <'t'>            {};
+        // struct radian            : string <'r', 'a', 'd'>  {};
+        // struct steradian         : string <'s', 'r'>       {};
     } // namespace units
 
 #define ISTO_QUANTITY_UNIT_PARSER_ACTION_UNIT(U)                                      \
@@ -166,8 +164,6 @@ ISTO_QUANTITY_UNIT_PARSER_ACTION_UNIT(ampere)
 ISTO_QUANTITY_UNIT_PARSER_ACTION_UNIT(kelvin)
 ISTO_QUANTITY_UNIT_PARSER_ACTION_UNIT(mole)
 ISTO_QUANTITY_UNIT_PARSER_ACTION_UNIT(candela)
-//ISTO_QUANTITY_UNIT_PARSER_ACTION_UNIT(radian)
-//ISTO_QUANTITY_UNIT_PARSER_ACTION_UNIT(steradian)
 ISTO_QUANTITY_UNIT_PARSER_ACTION_UNIT(hertz)
 ISTO_QUANTITY_UNIT_PARSER_ACTION_UNIT(newton)
 ISTO_QUANTITY_UNIT_PARSER_ACTION_UNIT(pascal)
@@ -187,52 +183,55 @@ ISTO_QUANTITY_UNIT_PARSER_ACTION_UNIT(becquerel)
 ISTO_QUANTITY_UNIT_PARSER_ACTION_UNIT(gray)
 ISTO_QUANTITY_UNIT_PARSER_ACTION_UNIT(sievert)
 ISTO_QUANTITY_UNIT_PARSER_ACTION_UNIT(katal)
-//ISTO_QUANTITY_UNIT_PARSER_ACTION_UNIT(minute)
-//ISTO_QUANTITY_UNIT_PARSER_ACTION_UNIT(hour)
-//ISTO_QUANTITY_UNIT_PARSER_ACTION_UNIT(day)
-//ISTO_QUANTITY_UNIT_PARSER_ACTION_UNIT(hectare)
-//ISTO_QUANTITY_UNIT_PARSER_ACTION_UNIT(litre)
-//ISTO_QUANTITY_UNIT_PARSER_ACTION_UNIT(tonne)
-//ISTO_QUANTITY_UNIT_PARSER_ACTION_UNIT(astronomical_unit)
+ISTO_QUANTITY_UNIT_PARSER_ACTION_UNIT(minute)
+ISTO_QUANTITY_UNIT_PARSER_ACTION_UNIT(hour)
 ISTO_QUANTITY_UNIT_PARSER_ACTION_UNIT(bar)
+// ISTO_QUANTITY_UNIT_PARSER_ACTION_UNIT(day)
+// ISTO_QUANTITY_UNIT_PARSER_ACTION_UNIT(astronomical_unit)
+// ISTO_QUANTITY_UNIT_PARSER_ACTION_UNIT(hectare)
+// ISTO_QUANTITY_UNIT_PARSER_ACTION_UNIT(litre)
+// ISTO_QUANTITY_UNIT_PARSER_ACTION_UNIT(tonne)
+// ISTO_QUANTITY_UNIT_PARSER_ACTION_UNIT(radian)
+// ISTO_QUANTITY_UNIT_PARSER_ACTION_UNIT(steradian)
 #undef ISTO_QUANTITY_UNIT_PARSER_ACTION_UNIT
+
     struct named_unit : sor <
-          units::katal             
-        , units::minute            
-        , units::mole              
-        , units::radian            
-        , units::candela           
-        , units::steradian         
-        , units::hertz             
-        , units::pascal            
-        , units::weber             
-        , units::lumen             
-        , units::lux               
-        , units::becquerel         
-        , units::gray              
-        , units::sievert           
-        , units::hectare           
-        //, units::astronomical_unit 
-        , units::metre             
-        , units::gram              
-        , units::second            
-        , units::ampere            
-        , units::kelvin            
-        , units::newton            
-        , units::joule             
-        , units::watt              
-        , units::coulomb           
-        , units::volt              
-        , units::farad             
-        , units::ohm               
-        , units::siemens           
-        , units::tesla             
-        , units::henry             
-        , units::hour              
-        //, units::day               
-        , units::litre             
-        , units::tonne             
-        , units::bar             
+          units::mole                // mol
+        , units::katal               // kat
+        , units::minute              // min
+        , units::bar                 // bar
+        , units::candela             // cd
+        , units::hertz               // Hz
+        , units::pascal              // Pa
+        , units::weber               // Wb
+        , units::lumen               // lu
+        , units::lux                 // lx
+        , units::becquerel           // Bq
+        , units::gray                // Gy
+        , units::sievert             // Sv
+        , units::metre               // m
+        , units::gram                // g
+        , units::second              // s
+        , units::ampere              // A
+        , units::kelvin              // K
+        , units::newton              // N
+        , units::joule               // J
+        , units::watt                // W
+        , units::coulomb             // C
+        , units::volt                // V
+        , units::farad               // F
+        , units::ohm                 // 0x2126
+        , units::siemens             // S
+        , units::tesla               // T
+        , units::henry               // H
+        , units::hour                // h
+        // , units::day
+        // , units::astronomical_unit
+        // , units::hectare
+        // , units::litre
+        // , units::tonne
+        // , units::radian
+        // , units::steradian
     > {};
 
     struct op_mul : one <'.'> {};

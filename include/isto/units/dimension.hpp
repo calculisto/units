@@ -78,10 +78,11 @@ pow (dimension_t a)
           std::begin (a.data)
         , std::end   (a.data)
         , std::begin (a.data)
-        , [](auto x){ return x * E; }
+        , [](double x){ return x * static_cast <double> (E); }
     );
     return a;
 }
+
     template <class T>
     constexpr dimension_t
 pow (dimension_t a, T const& e)
@@ -94,6 +95,7 @@ pow (dimension_t a, T const& e)
     );
     return a;
 }
+
     constexpr dimension_t
 inverse (dimension_t a)
 {

@@ -201,6 +201,7 @@ operator * (
 }
 
 // Some functions
+
     template <class ValueType, class Exponent>
     constexpr auto
 pow (any_quantity_t <ValueType> q, Exponent const& e)
@@ -210,6 +211,7 @@ pow (any_quantity_t <ValueType> q, Exponent const& e)
     q.dimension = pow (q.dimension, e);
     return q;
 }
+
 
 // A quantity, i.e. a magnitude with a compile-time dimension.
     template <dimension_t Dimension, class ValueType>
@@ -423,6 +425,7 @@ operator - (
           dimension_t Dimension
         , class ValueType
         , class T
+        //, class = std::enable_if_t <!is_quantity_v <T>>
     >
     constexpr auto
 operator * (
@@ -442,6 +445,7 @@ operator * (
           dimension_t Dimension
         , class ValueType
         , class T
+        //, class = std::enable_if_t <!is_quantity_v <T>>
     >
     constexpr auto
 operator * (

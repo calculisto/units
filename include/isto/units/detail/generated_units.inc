@@ -486,6 +486,50 @@ unit
     template <class T = double> inline constexpr auto zeptosecond = prefix::zepto <T> * second <T>;
     template <class T = double> inline constexpr auto yoctosecond = prefix::yocto <T> * second <T>;
 
+    template <class T = double> inline constexpr auto minute = quantity_t <dimension::time, T> { 60.0 };
+    template <class T = double> inline constexpr auto yottaminute = prefix::yotta <T> * minute <T>;
+    template <class T = double> inline constexpr auto zettaminute = prefix::zetta <T> * minute <T>;
+    template <class T = double> inline constexpr auto examinute   = prefix::exa   <T> * minute <T>;
+    template <class T = double> inline constexpr auto petaminute  = prefix::peta  <T> * minute <T>;
+    template <class T = double> inline constexpr auto teraminute  = prefix::tera  <T> * minute <T>;
+    template <class T = double> inline constexpr auto gigaminute  = prefix::giga  <T> * minute <T>;
+    template <class T = double> inline constexpr auto megaminute  = prefix::mega  <T> * minute <T>;
+    template <class T = double> inline constexpr auto kilominute  = prefix::kilo  <T> * minute <T>;
+    template <class T = double> inline constexpr auto hectominute = prefix::hecto <T> * minute <T>;
+    template <class T = double> inline constexpr auto decaminute  = prefix::deca  <T> * minute <T>;
+    template <class T = double> inline constexpr auto deciminute  = prefix::deci  <T> * minute <T>;
+    template <class T = double> inline constexpr auto centiminute = prefix::centi <T> * minute <T>;
+    template <class T = double> inline constexpr auto milliminute = prefix::milli <T> * minute <T>;
+    template <class T = double> inline constexpr auto microminute = prefix::micro <T> * minute <T>;
+    template <class T = double> inline constexpr auto nanominute  = prefix::nano  <T> * minute <T>;
+    template <class T = double> inline constexpr auto picominute  = prefix::pico  <T> * minute <T>;
+    template <class T = double> inline constexpr auto femtominute = prefix::femto <T> * minute <T>;
+    template <class T = double> inline constexpr auto attominute  = prefix::femto <T> * minute <T>;
+    template <class T = double> inline constexpr auto zeptominute = prefix::zepto <T> * minute <T>;
+    template <class T = double> inline constexpr auto yoctominute = prefix::yocto <T> * minute <T>;
+
+    template <class T = double> inline constexpr auto hour = quantity_t <dimension::time, T> { 3600.0 };
+    template <class T = double> inline constexpr auto yottahour = prefix::yotta <T> * hour <T>;
+    template <class T = double> inline constexpr auto zettahour = prefix::zetta <T> * hour <T>;
+    template <class T = double> inline constexpr auto exahour   = prefix::exa   <T> * hour <T>;
+    template <class T = double> inline constexpr auto petahour  = prefix::peta  <T> * hour <T>;
+    template <class T = double> inline constexpr auto terahour  = prefix::tera  <T> * hour <T>;
+    template <class T = double> inline constexpr auto gigahour  = prefix::giga  <T> * hour <T>;
+    template <class T = double> inline constexpr auto megahour  = prefix::mega  <T> * hour <T>;
+    template <class T = double> inline constexpr auto kilohour  = prefix::kilo  <T> * hour <T>;
+    template <class T = double> inline constexpr auto hectohour = prefix::hecto <T> * hour <T>;
+    template <class T = double> inline constexpr auto decahour  = prefix::deca  <T> * hour <T>;
+    template <class T = double> inline constexpr auto decihour  = prefix::deci  <T> * hour <T>;
+    template <class T = double> inline constexpr auto centihour = prefix::centi <T> * hour <T>;
+    template <class T = double> inline constexpr auto millihour = prefix::milli <T> * hour <T>;
+    template <class T = double> inline constexpr auto microhour = prefix::micro <T> * hour <T>;
+    template <class T = double> inline constexpr auto nanohour  = prefix::nano  <T> * hour <T>;
+    template <class T = double> inline constexpr auto picohour  = prefix::pico  <T> * hour <T>;
+    template <class T = double> inline constexpr auto femtohour = prefix::femto <T> * hour <T>;
+    template <class T = double> inline constexpr auto attohour  = prefix::femto <T> * hour <T>;
+    template <class T = double> inline constexpr auto zeptohour = prefix::zepto <T> * hour <T>;
+    template <class T = double> inline constexpr auto yoctohour = prefix::yocto <T> * hour <T>;
+
     template <class T = double> inline constexpr auto ampere = quantity_t <dimension::electric_current, T> { 1.0 };
     template <class T = double> inline constexpr auto yottaampere = prefix::yotta <T> * ampere <T>;
     template <class T = double> inline constexpr auto zettaampere = prefix::zetta <T> * ampere <T>;
@@ -1022,6 +1066,8 @@ names_to_values = std::unordered_map <std::string, any_quantity_t <T>>
     { "metre", any_quantity_t { metre <T> }},
     { "gram", any_quantity_t { gram <T> }},
     { "second", any_quantity_t { second <T> }},
+    { "minute", any_quantity_t { minute <T> }},
+    { "hour", any_quantity_t { hour <T> }},
     { "ampere", any_quantity_t { ampere <T> }},
     { "kelvin", any_quantity_t { kelvin <T> }},
     { "mole", any_quantity_t { mole <T> }},
@@ -1056,6 +1102,8 @@ values_to_names = std::unordered_map <any_quantity_t <T>, std::string>
     { any_quantity_t { metre <T> }, "metre" },
     { any_quantity_t { gram <T> }, "gram" },
     { any_quantity_t { second <T> }, "second" },
+    { any_quantity_t { minute <T> }, "minute" },
+    { any_quantity_t { hour <T> }, "hour" },
     { any_quantity_t { ampere <T> }, "ampere" },
     { any_quantity_t { kelvin <T> }, "kelvin" },
     { any_quantity_t { mole <T> }, "mole" },
@@ -1090,6 +1138,8 @@ symbols_to_values = std::unordered_map <std::string, any_quantity_t <T>>
     { "m", any_quantity_t { metre <T> }},
     { "g", any_quantity_t { gram <T> }},
     { "s", any_quantity_t { second <T> }},
+    { "min", any_quantity_t { minute <T> }},
+    { "h", any_quantity_t { hour <T> }},
     { "A", any_quantity_t { ampere <T> }},
     { "K", any_quantity_t { kelvin <T> }},
     { "mol", any_quantity_t { mole <T> }},
@@ -1124,6 +1174,8 @@ values_to_symbols = std::unordered_map <any_quantity_t <T>, std::string>
     { any_quantity_t { metre <T> }, "m" },
     { any_quantity_t { gram <T> }, "g" },
     { any_quantity_t { second <T> }, "s" },
+    { any_quantity_t { minute <T> }, "min" },
+    { any_quantity_t { hour <T> }, "h" },
     { any_quantity_t { ampere <T> }, "A" },
     { any_quantity_t { kelvin <T> }, "K" },
     { any_quantity_t { mole <T> }, "mol" },
@@ -1157,6 +1209,8 @@ names_to_symbols = std::unordered_map <std::string, std::string>
     { "metre", "m" },
     { "gram", "g" },
     { "second", "s" },
+    { "minute", "min" },
+    { "hour", "h" },
     { "ampere", "A" },
     { "kelvin", "K" },
     { "mole", "mol" },
@@ -1190,6 +1244,8 @@ symbols_to_names = std::unordered_map <std::string, std::string>
     { "m", "metre" },
     { "g", "gram" },
     { "s", "second" },
+    { "min", "minute" },
+    { "h", "hour" },
     { "A", "ampere" },
     { "K", "kelvin" },
     { "mol", "mole" },
@@ -1235,7 +1291,7 @@ dimension_names_to_unit_names = std::unordered_map <std::string, std::vector <st
     { "none", { "none", }},
     { "length", { "metre", }},
     { "mass", { "gram", }},
-    { "time", { "second", }},
+    { "time", { "second", "minute", "hour", }},
     { "electric_current", { "ampere", }},
     { "thermodynamic_temperature", { "kelvin", }},
     { "amount_of_substance", { "mole", }},
@@ -1291,7 +1347,7 @@ dimensions_to_units = std::unordered_map <dimension_t, std::vector <any_quantity
     { dimension::none, { none <T>, }},
     { dimension::length, { metre <T>, }},
     { dimension::mass, { gram <T>, }},
-    { dimension::time, { second <T>, }},
+    { dimension::time, { second <T>, minute <T>, hour <T>, }},
     { dimension::electric_current, { ampere <T>, }},
     { dimension::thermodynamic_temperature, { kelvin <T>, }},
     { dimension::amount_of_substance, { mole <T>, }},
@@ -1398,6 +1454,42 @@ literals
     constexpr auto operator ""_ps  (long double x) noexcept { return x * unit::picosecond <long double>; }
     constexpr auto operator ""_fs  (long double x) noexcept { return x * unit::femtosecond <long double>; }
     constexpr auto operator ""_as  (long double x) noexcept { return x * unit::attosecond <long double>; }
+
+    constexpr auto operator ""_min   (long double x) noexcept { return x * unit::minute <long double>; }
+    constexpr auto operator ""_Emin  (long double x) noexcept { return x * unit::examinute <long double>; }
+    constexpr auto operator ""_Pmin  (long double x) noexcept { return x * unit::petaminute <long double>; }
+    constexpr auto operator ""_Tmin  (long double x) noexcept { return x * unit::teraminute <long double>; }
+    constexpr auto operator ""_Gmin  (long double x) noexcept { return x * unit::gigaminute <long double>; }
+    constexpr auto operator ""_Mmin  (long double x) noexcept { return x * unit::megaminute <long double>; }
+    constexpr auto operator ""_kmin  (long double x) noexcept { return x * unit::kilominute <long double>; }
+    constexpr auto operator ""_hmin  (long double x) noexcept { return x * unit::hectominute <long double>; }
+    constexpr auto operator ""_damin (long double x) noexcept { return x * unit::decaminute <long double>; }
+    constexpr auto operator ""_dmin  (long double x) noexcept { return x * unit::deciminute <long double>; }
+    constexpr auto operator ""_cmin  (long double x) noexcept { return x * unit::centiminute <long double>; }
+    constexpr auto operator ""_mmin  (long double x) noexcept { return x * unit::milliminute <long double>; }
+    constexpr auto operator ""_umin  (long double x) noexcept { return x * unit::microminute <long double>; }
+    constexpr auto operator ""_nmin  (long double x) noexcept { return x * unit::nanominute <long double>; }
+    constexpr auto operator ""_pmin  (long double x) noexcept { return x * unit::picominute <long double>; }
+    constexpr auto operator ""_fmin  (long double x) noexcept { return x * unit::femtominute <long double>; }
+    constexpr auto operator ""_amin  (long double x) noexcept { return x * unit::attominute <long double>; }
+
+    constexpr auto operator ""_h   (long double x) noexcept { return x * unit::hour <long double>; }
+    constexpr auto operator ""_Eh  (long double x) noexcept { return x * unit::exahour <long double>; }
+    constexpr auto operator ""_Ph  (long double x) noexcept { return x * unit::petahour <long double>; }
+    constexpr auto operator ""_Th  (long double x) noexcept { return x * unit::terahour <long double>; }
+    constexpr auto operator ""_Gh  (long double x) noexcept { return x * unit::gigahour <long double>; }
+    constexpr auto operator ""_Mh  (long double x) noexcept { return x * unit::megahour <long double>; }
+    constexpr auto operator ""_kh  (long double x) noexcept { return x * unit::kilohour <long double>; }
+    constexpr auto operator ""_hh  (long double x) noexcept { return x * unit::hectohour <long double>; }
+    constexpr auto operator ""_dah (long double x) noexcept { return x * unit::decahour <long double>; }
+    constexpr auto operator ""_dh  (long double x) noexcept { return x * unit::decihour <long double>; }
+    constexpr auto operator ""_ch  (long double x) noexcept { return x * unit::centihour <long double>; }
+    constexpr auto operator ""_mh  (long double x) noexcept { return x * unit::millihour <long double>; }
+    constexpr auto operator ""_uh  (long double x) noexcept { return x * unit::microhour <long double>; }
+    constexpr auto operator ""_nh  (long double x) noexcept { return x * unit::nanohour <long double>; }
+    constexpr auto operator ""_ph  (long double x) noexcept { return x * unit::picohour <long double>; }
+    constexpr auto operator ""_fh  (long double x) noexcept { return x * unit::femtohour <long double>; }
+    constexpr auto operator ""_ah  (long double x) noexcept { return x * unit::attohour <long double>; }
 
     constexpr auto operator ""_A   (long double x) noexcept { return x * unit::ampere <long double>; }
     constexpr auto operator ""_EA  (long double x) noexcept { return x * unit::exaampere <long double>; }
