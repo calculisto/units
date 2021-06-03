@@ -67,4 +67,41 @@ TEST_CASE("units")
     {
         static_assert (concepts::pressure <decltype (unit::pascal <>)>);
     }
+    SUBCASE("base_unit_symbol")
+    {
+        // Not yet
+        // static_assert (base_unit_symbol (dimension::length) == "m");
+        CHECK(base_unit_symbol (dimension::length) == "m");
+        CHECK(base_unit_symbol (dimension::pressure) == "m-1.kg.s-2");
+    }
+    SUBCASE("GCC bug 98216")
+    {
+        static_assert (
+               dimension::force * dimension::time 
+            == dimension::length * dimension::mass / dimension::time
+        );
+
+            constexpr auto
+        x = quantity_t <dimension::force, double> { 1. };
+            constexpr auto
+        y = quantity_t <dimension::time, double> { 1. };
+
+        static_assert (
+               x.dimension * y.dimension
+            == dimension::length * dimension::mass / dimension::time
+        );
+
+            constexpr auto
+        z = x * y;
+        static_assert (
+               z.dimension 
+            == dimension::length * dimension::mass / dimension::time
+        );
+            constexpr auto
+        a = unit::newton <> * unit::second <>;
+        static_assert (
+               a.dimension 
+            == dimension::length * dimension::mass / dimension::time
+        );
+    };
 };

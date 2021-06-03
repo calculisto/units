@@ -10,8 +10,8 @@ for (auto&& [symbol_u, unit]: unit::symbols_to_values <double>)
     if (symbol_u == "_") continue;
         auto
     u = unit_parse (symbol_u);
-    CHECK_MESSAGE (u.has_value (), symbol_u);
-    CHECK_MESSAGE (*u == unit,     symbol_u);
+    //CHECK_MESSAGE (u.has_value (), symbol_u);
+    CHECK_MESSAGE (u == unit,     symbol_u);
 }
 
 for (auto&& [symbol_u, unit]: unit::symbols_to_values <double>)
@@ -21,18 +21,13 @@ for (auto&& [symbol_u, unit]: unit::symbols_to_values <double>)
     {
             auto
         u = unit_parse (symbol_p + symbol_u);
-        CHECK (u.has_value ());
-        CHECK (*u == prefix * unit);
+        //CHECK (u.has_value ());
+        CHECK (u == prefix * unit);
     }
 }
 
-    auto
-u = unit_parse ("!@#$%");
-CHECK (!u);
-
-    auto
-v = unit_parse ("X");
-CHECK (!v);
+CHECK_THROWS (unit_parse ("!@#$%"));
+CHECK_THROWS (unit_parse ("X"));
 
 CHECK (unit_parse ("km.h") == unit::kilometre <> * unit::hour <>);
 CHECK (unit_parse ("km/h") == unit::kilometre <> / unit::hour <>);
