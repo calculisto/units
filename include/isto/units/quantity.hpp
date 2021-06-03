@@ -343,14 +343,16 @@ operator * (
       quantity_t <Dimension1, ValueType1> const& a
     , quantity_t <Dimension2, ValueType2> const& b
 ){
-    if constexpr (constexpr auto d = Dimension1 * Dimension2; d.is_dimensionless ())
+        constexpr auto
+    d = Dimension1 * Dimension2;
+    if constexpr (d.is_dimensionless ())
     {
         return a.magnitude * b.magnitude;
     }
     else
     {
         return quantity_t <
-              Dimension1 * Dimension2
+              d
             , decltype (
                 std::declval <ValueType1> () * std::declval <ValueType2> ()
               )
@@ -368,14 +370,16 @@ operator / (
       quantity_t <Dimension1, ValueType1> const& a
     , quantity_t <Dimension2, ValueType2> const& b
 ){
-    if constexpr (constexpr auto d = Dimension1 / Dimension2; d.is_dimensionless ())
+        constexpr auto
+    d = Dimension1 / Dimension2;
+    if constexpr (d.is_dimensionless ())
     {
         return a.magnitude / b.magnitude;
     }
     else
     {
         return quantity_t <
-              Dimension1 / Dimension2
+              d
             , decltype (
                 std::declval <ValueType1> () / std::declval <ValueType2> ()
               )
