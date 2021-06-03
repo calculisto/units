@@ -13,7 +13,8 @@ dimension_t
 {
         static constexpr std::size_t
     count = 7;
-        std::array <double, count>
+    // Workaround GCC bug 98216
+        std::array <float/*double*/, count>
     data;
         constexpr auto&
     operator [] (std::size_t index) noexcept 
