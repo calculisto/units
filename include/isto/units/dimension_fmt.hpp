@@ -6,11 +6,10 @@
 #include <fmt/format.h>
 
 
-    template <class Char>
+    template <>
     struct 
-fmt::formatter <dimension_t, Char>
+fmt::formatter <dimension_t>
 {
-
         template <typename FormatContext>
         constexpr auto 
     parse (FormatContext& ctx)
