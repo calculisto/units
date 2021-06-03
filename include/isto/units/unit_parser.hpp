@@ -314,13 +314,30 @@ ISTO_QUANTITY_UNIT_PARSER_ACTION_UNIT(bar)
 } //namespace peg
 
     template <class ValueType = double>
-    std::optional <any_quantity_t <ValueType>>
+    //std::optional <any_quantity_t <ValueType>>
+    any_quantity_t <ValueType>
 unit_parse (std::string const& string)
 {
+        peg::state <ValueType>
+    s;
+    tao::pegtl::parse <
+          peg::grammar
+        , peg::action
+        //, tao::pegtl::tracer
+        > (
+          memory_input (string, "")
+        , s
+    );
+    return s.unit;
+}
+    template <class ValueType = double>
+    std::optional <any_quantity_t <ValueType>>
+unit_parse_opt (std::string const& string)
+{
+        peg::state <ValueType>
+    s;
     try
     {
-            peg::state <ValueType>
-        s;
         tao::pegtl::parse <
               peg::grammar
             , peg::action
@@ -329,11 +346,11 @@ unit_parse (std::string const& string)
               memory_input (string, "")
             , s
         );
-        return s.unit;
     }
     catch (...)
     {
         return {};
     }
+    return s.unit;
 }
 } // namespace isto::units
