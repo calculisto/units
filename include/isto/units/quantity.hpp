@@ -501,6 +501,21 @@ pow (quantity_t <Dimension, ValueType> const& q)
     };
 }
     
+    template <
+          class Exponent
+        , dimension_t Dimension
+        , class ValueType
+    >
+    constexpr auto
+pow (quantity_t <Dimension, ValueType> const& q, Exponent&& exponent)
+{
+        using std::pow;
+    return quantity_t <pow (Dimension, exponent), ValueType>
+    {
+        pow (q.magnitude, exponent)
+    };
+}
+
     template <dimension_t Dimension, class ValueType>
     constexpr auto
 sqrt (quantity_t <Dimension, ValueType> const& q)
