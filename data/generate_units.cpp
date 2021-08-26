@@ -288,7 +288,7 @@ unit
     {
         out << format (
 R"(
-    template <class T = double> inline constexpr auto {0} = quantity_t <dimension::{1}, T> {{ {2} }};
+    template <class T = double> inline constexpr auto {0} = quantity_t <dimension::{1}, T> {{ static_cast <T> ({2}) }};
     template <class T = double> inline constexpr auto yotta{0} = prefix::yotta <T> * {0} <T>;
     template <class T = double> inline constexpr auto zetta{0} = prefix::zetta <T> * {0} <T>;
     template <class T = double> inline constexpr auto exa{0}   = prefix::exa   <T> * {0} <T>;

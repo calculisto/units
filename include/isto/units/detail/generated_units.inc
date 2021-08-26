@@ -403,7 +403,7 @@ prefix
 unit
 {
 
-    template <class T = double> inline constexpr auto none = quantity_t <dimension::none, T> { 1 };
+    template <class T = double> inline constexpr auto none = quantity_t <dimension::none, T> { static_cast <T> (1) };
     template <class T = double> inline constexpr auto yottanone = prefix::yotta <T> * none <T>;
     template <class T = double> inline constexpr auto zettanone = prefix::zetta <T> * none <T>;
     template <class T = double> inline constexpr auto exanone   = prefix::exa   <T> * none <T>;
@@ -425,7 +425,7 @@ unit
     template <class T = double> inline constexpr auto zeptonone = prefix::zepto <T> * none <T>;
     template <class T = double> inline constexpr auto yoctonone = prefix::yocto <T> * none <T>;
 
-    template <class T = double> inline constexpr auto metre = quantity_t <dimension::length, T> { 1 };
+    template <class T = double> inline constexpr auto metre = quantity_t <dimension::length, T> { static_cast <T> (1) };
     template <class T = double> inline constexpr auto yottametre = prefix::yotta <T> * metre <T>;
     template <class T = double> inline constexpr auto zettametre = prefix::zetta <T> * metre <T>;
     template <class T = double> inline constexpr auto exametre   = prefix::exa   <T> * metre <T>;
@@ -447,7 +447,7 @@ unit
     template <class T = double> inline constexpr auto zeptometre = prefix::zepto <T> * metre <T>;
     template <class T = double> inline constexpr auto yoctometre = prefix::yocto <T> * metre <T>;
 
-    template <class T = double> inline constexpr auto gram = quantity_t <dimension::mass, T> { 0.001 };
+    template <class T = double> inline constexpr auto gram = quantity_t <dimension::mass, T> { static_cast <T> (0.001) };
     template <class T = double> inline constexpr auto yottagram = prefix::yotta <T> * gram <T>;
     template <class T = double> inline constexpr auto zettagram = prefix::zetta <T> * gram <T>;
     template <class T = double> inline constexpr auto exagram   = prefix::exa   <T> * gram <T>;
@@ -469,7 +469,7 @@ unit
     template <class T = double> inline constexpr auto zeptogram = prefix::zepto <T> * gram <T>;
     template <class T = double> inline constexpr auto yoctogram = prefix::yocto <T> * gram <T>;
 
-    template <class T = double> inline constexpr auto second = quantity_t <dimension::time, T> { 1 };
+    template <class T = double> inline constexpr auto second = quantity_t <dimension::time, T> { static_cast <T> (1) };
     template <class T = double> inline constexpr auto yottasecond = prefix::yotta <T> * second <T>;
     template <class T = double> inline constexpr auto zettasecond = prefix::zetta <T> * second <T>;
     template <class T = double> inline constexpr auto exasecond   = prefix::exa   <T> * second <T>;
@@ -491,7 +491,7 @@ unit
     template <class T = double> inline constexpr auto zeptosecond = prefix::zepto <T> * second <T>;
     template <class T = double> inline constexpr auto yoctosecond = prefix::yocto <T> * second <T>;
 
-    template <class T = double> inline constexpr auto minute = quantity_t <dimension::time, T> { 60 };
+    template <class T = double> inline constexpr auto minute = quantity_t <dimension::time, T> { static_cast <T> (60) };
     template <class T = double> inline constexpr auto yottaminute = prefix::yotta <T> * minute <T>;
     template <class T = double> inline constexpr auto zettaminute = prefix::zetta <T> * minute <T>;
     template <class T = double> inline constexpr auto examinute   = prefix::exa   <T> * minute <T>;
@@ -513,7 +513,7 @@ unit
     template <class T = double> inline constexpr auto zeptominute = prefix::zepto <T> * minute <T>;
     template <class T = double> inline constexpr auto yoctominute = prefix::yocto <T> * minute <T>;
 
-    template <class T = double> inline constexpr auto hour = quantity_t <dimension::time, T> { 3600 };
+    template <class T = double> inline constexpr auto hour = quantity_t <dimension::time, T> { static_cast <T> (3600) };
     template <class T = double> inline constexpr auto yottahour = prefix::yotta <T> * hour <T>;
     template <class T = double> inline constexpr auto zettahour = prefix::zetta <T> * hour <T>;
     template <class T = double> inline constexpr auto exahour   = prefix::exa   <T> * hour <T>;
@@ -535,7 +535,7 @@ unit
     template <class T = double> inline constexpr auto zeptohour = prefix::zepto <T> * hour <T>;
     template <class T = double> inline constexpr auto yoctohour = prefix::yocto <T> * hour <T>;
 
-    template <class T = double> inline constexpr auto ampere = quantity_t <dimension::electric_current, T> { 1 };
+    template <class T = double> inline constexpr auto ampere = quantity_t <dimension::electric_current, T> { static_cast <T> (1) };
     template <class T = double> inline constexpr auto yottaampere = prefix::yotta <T> * ampere <T>;
     template <class T = double> inline constexpr auto zettaampere = prefix::zetta <T> * ampere <T>;
     template <class T = double> inline constexpr auto exaampere   = prefix::exa   <T> * ampere <T>;
@@ -557,7 +557,7 @@ unit
     template <class T = double> inline constexpr auto zeptoampere = prefix::zepto <T> * ampere <T>;
     template <class T = double> inline constexpr auto yoctoampere = prefix::yocto <T> * ampere <T>;
 
-    template <class T = double> inline constexpr auto kelvin = quantity_t <dimension::thermodynamic_temperature, T> { 1 };
+    template <class T = double> inline constexpr auto kelvin = quantity_t <dimension::thermodynamic_temperature, T> { static_cast <T> (1) };
     template <class T = double> inline constexpr auto yottakelvin = prefix::yotta <T> * kelvin <T>;
     template <class T = double> inline constexpr auto zettakelvin = prefix::zetta <T> * kelvin <T>;
     template <class T = double> inline constexpr auto exakelvin   = prefix::exa   <T> * kelvin <T>;
@@ -579,7 +579,7 @@ unit
     template <class T = double> inline constexpr auto zeptokelvin = prefix::zepto <T> * kelvin <T>;
     template <class T = double> inline constexpr auto yoctokelvin = prefix::yocto <T> * kelvin <T>;
 
-    template <class T = double> inline constexpr auto mole = quantity_t <dimension::amount_of_substance, T> { 1 };
+    template <class T = double> inline constexpr auto mole = quantity_t <dimension::amount_of_substance, T> { static_cast <T> (1) };
     template <class T = double> inline constexpr auto yottamole = prefix::yotta <T> * mole <T>;
     template <class T = double> inline constexpr auto zettamole = prefix::zetta <T> * mole <T>;
     template <class T = double> inline constexpr auto examole   = prefix::exa   <T> * mole <T>;
@@ -601,7 +601,7 @@ unit
     template <class T = double> inline constexpr auto zeptomole = prefix::zepto <T> * mole <T>;
     template <class T = double> inline constexpr auto yoctomole = prefix::yocto <T> * mole <T>;
 
-    template <class T = double> inline constexpr auto candela = quantity_t <dimension::luminous_intensity, T> { 1 };
+    template <class T = double> inline constexpr auto candela = quantity_t <dimension::luminous_intensity, T> { static_cast <T> (1) };
     template <class T = double> inline constexpr auto yottacandela = prefix::yotta <T> * candela <T>;
     template <class T = double> inline constexpr auto zettacandela = prefix::zetta <T> * candela <T>;
     template <class T = double> inline constexpr auto exacandela   = prefix::exa   <T> * candela <T>;
@@ -623,7 +623,7 @@ unit
     template <class T = double> inline constexpr auto zeptocandela = prefix::zepto <T> * candela <T>;
     template <class T = double> inline constexpr auto yoctocandela = prefix::yocto <T> * candela <T>;
 
-    template <class T = double> inline constexpr auto hertz = quantity_t <dimension::frequency, T> { 1 };
+    template <class T = double> inline constexpr auto hertz = quantity_t <dimension::frequency, T> { static_cast <T> (1) };
     template <class T = double> inline constexpr auto yottahertz = prefix::yotta <T> * hertz <T>;
     template <class T = double> inline constexpr auto zettahertz = prefix::zetta <T> * hertz <T>;
     template <class T = double> inline constexpr auto exahertz   = prefix::exa   <T> * hertz <T>;
@@ -645,7 +645,7 @@ unit
     template <class T = double> inline constexpr auto zeptohertz = prefix::zepto <T> * hertz <T>;
     template <class T = double> inline constexpr auto yoctohertz = prefix::yocto <T> * hertz <T>;
 
-    template <class T = double> inline constexpr auto newton = quantity_t <dimension::force, T> { 1 };
+    template <class T = double> inline constexpr auto newton = quantity_t <dimension::force, T> { static_cast <T> (1) };
     template <class T = double> inline constexpr auto yottanewton = prefix::yotta <T> * newton <T>;
     template <class T = double> inline constexpr auto zettanewton = prefix::zetta <T> * newton <T>;
     template <class T = double> inline constexpr auto exanewton   = prefix::exa   <T> * newton <T>;
@@ -667,7 +667,7 @@ unit
     template <class T = double> inline constexpr auto zeptonewton = prefix::zepto <T> * newton <T>;
     template <class T = double> inline constexpr auto yoctonewton = prefix::yocto <T> * newton <T>;
 
-    template <class T = double> inline constexpr auto pascal = quantity_t <dimension::pressure, T> { 1 };
+    template <class T = double> inline constexpr auto pascal = quantity_t <dimension::pressure, T> { static_cast <T> (1) };
     template <class T = double> inline constexpr auto yottapascal = prefix::yotta <T> * pascal <T>;
     template <class T = double> inline constexpr auto zettapascal = prefix::zetta <T> * pascal <T>;
     template <class T = double> inline constexpr auto exapascal   = prefix::exa   <T> * pascal <T>;
@@ -689,7 +689,7 @@ unit
     template <class T = double> inline constexpr auto zeptopascal = prefix::zepto <T> * pascal <T>;
     template <class T = double> inline constexpr auto yoctopascal = prefix::yocto <T> * pascal <T>;
 
-    template <class T = double> inline constexpr auto bar = quantity_t <dimension::pressure, T> { 100000 };
+    template <class T = double> inline constexpr auto bar = quantity_t <dimension::pressure, T> { static_cast <T> (100000) };
     template <class T = double> inline constexpr auto yottabar = prefix::yotta <T> * bar <T>;
     template <class T = double> inline constexpr auto zettabar = prefix::zetta <T> * bar <T>;
     template <class T = double> inline constexpr auto exabar   = prefix::exa   <T> * bar <T>;
@@ -711,7 +711,7 @@ unit
     template <class T = double> inline constexpr auto zeptobar = prefix::zepto <T> * bar <T>;
     template <class T = double> inline constexpr auto yoctobar = prefix::yocto <T> * bar <T>;
 
-    template <class T = double> inline constexpr auto joule = quantity_t <dimension::energy, T> { 1 };
+    template <class T = double> inline constexpr auto joule = quantity_t <dimension::energy, T> { static_cast <T> (1) };
     template <class T = double> inline constexpr auto yottajoule = prefix::yotta <T> * joule <T>;
     template <class T = double> inline constexpr auto zettajoule = prefix::zetta <T> * joule <T>;
     template <class T = double> inline constexpr auto exajoule   = prefix::exa   <T> * joule <T>;
@@ -733,7 +733,7 @@ unit
     template <class T = double> inline constexpr auto zeptojoule = prefix::zepto <T> * joule <T>;
     template <class T = double> inline constexpr auto yoctojoule = prefix::yocto <T> * joule <T>;
 
-    template <class T = double> inline constexpr auto watt = quantity_t <dimension::work, T> { 1 };
+    template <class T = double> inline constexpr auto watt = quantity_t <dimension::work, T> { static_cast <T> (1) };
     template <class T = double> inline constexpr auto yottawatt = prefix::yotta <T> * watt <T>;
     template <class T = double> inline constexpr auto zettawatt = prefix::zetta <T> * watt <T>;
     template <class T = double> inline constexpr auto exawatt   = prefix::exa   <T> * watt <T>;
@@ -755,7 +755,7 @@ unit
     template <class T = double> inline constexpr auto zeptowatt = prefix::zepto <T> * watt <T>;
     template <class T = double> inline constexpr auto yoctowatt = prefix::yocto <T> * watt <T>;
 
-    template <class T = double> inline constexpr auto coulomb = quantity_t <dimension::electric_charge, T> { 1 };
+    template <class T = double> inline constexpr auto coulomb = quantity_t <dimension::electric_charge, T> { static_cast <T> (1) };
     template <class T = double> inline constexpr auto yottacoulomb = prefix::yotta <T> * coulomb <T>;
     template <class T = double> inline constexpr auto zettacoulomb = prefix::zetta <T> * coulomb <T>;
     template <class T = double> inline constexpr auto exacoulomb   = prefix::exa   <T> * coulomb <T>;
@@ -777,7 +777,7 @@ unit
     template <class T = double> inline constexpr auto zeptocoulomb = prefix::zepto <T> * coulomb <T>;
     template <class T = double> inline constexpr auto yoctocoulomb = prefix::yocto <T> * coulomb <T>;
 
-    template <class T = double> inline constexpr auto volt = quantity_t <dimension::electric_potential_difference, T> { 1 };
+    template <class T = double> inline constexpr auto volt = quantity_t <dimension::electric_potential_difference, T> { static_cast <T> (1) };
     template <class T = double> inline constexpr auto yottavolt = prefix::yotta <T> * volt <T>;
     template <class T = double> inline constexpr auto zettavolt = prefix::zetta <T> * volt <T>;
     template <class T = double> inline constexpr auto exavolt   = prefix::exa   <T> * volt <T>;
@@ -799,7 +799,7 @@ unit
     template <class T = double> inline constexpr auto zeptovolt = prefix::zepto <T> * volt <T>;
     template <class T = double> inline constexpr auto yoctovolt = prefix::yocto <T> * volt <T>;
 
-    template <class T = double> inline constexpr auto farad = quantity_t <dimension::capacitance, T> { 1 };
+    template <class T = double> inline constexpr auto farad = quantity_t <dimension::capacitance, T> { static_cast <T> (1) };
     template <class T = double> inline constexpr auto yottafarad = prefix::yotta <T> * farad <T>;
     template <class T = double> inline constexpr auto zettafarad = prefix::zetta <T> * farad <T>;
     template <class T = double> inline constexpr auto exafarad   = prefix::exa   <T> * farad <T>;
@@ -821,7 +821,7 @@ unit
     template <class T = double> inline constexpr auto zeptofarad = prefix::zepto <T> * farad <T>;
     template <class T = double> inline constexpr auto yoctofarad = prefix::yocto <T> * farad <T>;
 
-    template <class T = double> inline constexpr auto ohm = quantity_t <dimension::electric_resistance, T> { 1 };
+    template <class T = double> inline constexpr auto ohm = quantity_t <dimension::electric_resistance, T> { static_cast <T> (1) };
     template <class T = double> inline constexpr auto yottaohm = prefix::yotta <T> * ohm <T>;
     template <class T = double> inline constexpr auto zettaohm = prefix::zetta <T> * ohm <T>;
     template <class T = double> inline constexpr auto exaohm   = prefix::exa   <T> * ohm <T>;
@@ -843,7 +843,7 @@ unit
     template <class T = double> inline constexpr auto zeptoohm = prefix::zepto <T> * ohm <T>;
     template <class T = double> inline constexpr auto yoctoohm = prefix::yocto <T> * ohm <T>;
 
-    template <class T = double> inline constexpr auto siemens = quantity_t <dimension::electric_conductance, T> { 1 };
+    template <class T = double> inline constexpr auto siemens = quantity_t <dimension::electric_conductance, T> { static_cast <T> (1) };
     template <class T = double> inline constexpr auto yottasiemens = prefix::yotta <T> * siemens <T>;
     template <class T = double> inline constexpr auto zettasiemens = prefix::zetta <T> * siemens <T>;
     template <class T = double> inline constexpr auto exasiemens   = prefix::exa   <T> * siemens <T>;
@@ -865,7 +865,7 @@ unit
     template <class T = double> inline constexpr auto zeptosiemens = prefix::zepto <T> * siemens <T>;
     template <class T = double> inline constexpr auto yoctosiemens = prefix::yocto <T> * siemens <T>;
 
-    template <class T = double> inline constexpr auto weber = quantity_t <dimension::magnetic_flux, T> { 1 };
+    template <class T = double> inline constexpr auto weber = quantity_t <dimension::magnetic_flux, T> { static_cast <T> (1) };
     template <class T = double> inline constexpr auto yottaweber = prefix::yotta <T> * weber <T>;
     template <class T = double> inline constexpr auto zettaweber = prefix::zetta <T> * weber <T>;
     template <class T = double> inline constexpr auto exaweber   = prefix::exa   <T> * weber <T>;
@@ -887,7 +887,7 @@ unit
     template <class T = double> inline constexpr auto zeptoweber = prefix::zepto <T> * weber <T>;
     template <class T = double> inline constexpr auto yoctoweber = prefix::yocto <T> * weber <T>;
 
-    template <class T = double> inline constexpr auto tesla = quantity_t <dimension::magnetic_flux_density, T> { 1 };
+    template <class T = double> inline constexpr auto tesla = quantity_t <dimension::magnetic_flux_density, T> { static_cast <T> (1) };
     template <class T = double> inline constexpr auto yottatesla = prefix::yotta <T> * tesla <T>;
     template <class T = double> inline constexpr auto zettatesla = prefix::zetta <T> * tesla <T>;
     template <class T = double> inline constexpr auto exatesla   = prefix::exa   <T> * tesla <T>;
@@ -909,7 +909,7 @@ unit
     template <class T = double> inline constexpr auto zeptotesla = prefix::zepto <T> * tesla <T>;
     template <class T = double> inline constexpr auto yoctotesla = prefix::yocto <T> * tesla <T>;
 
-    template <class T = double> inline constexpr auto henry = quantity_t <dimension::inductance, T> { 1 };
+    template <class T = double> inline constexpr auto henry = quantity_t <dimension::inductance, T> { static_cast <T> (1) };
     template <class T = double> inline constexpr auto yottahenry = prefix::yotta <T> * henry <T>;
     template <class T = double> inline constexpr auto zettahenry = prefix::zetta <T> * henry <T>;
     template <class T = double> inline constexpr auto exahenry   = prefix::exa   <T> * henry <T>;
@@ -931,7 +931,7 @@ unit
     template <class T = double> inline constexpr auto zeptohenry = prefix::zepto <T> * henry <T>;
     template <class T = double> inline constexpr auto yoctohenry = prefix::yocto <T> * henry <T>;
 
-    template <class T = double> inline constexpr auto lumen = quantity_t <dimension::luminous_flux, T> { 1 };
+    template <class T = double> inline constexpr auto lumen = quantity_t <dimension::luminous_flux, T> { static_cast <T> (1) };
     template <class T = double> inline constexpr auto yottalumen = prefix::yotta <T> * lumen <T>;
     template <class T = double> inline constexpr auto zettalumen = prefix::zetta <T> * lumen <T>;
     template <class T = double> inline constexpr auto exalumen   = prefix::exa   <T> * lumen <T>;
@@ -953,7 +953,7 @@ unit
     template <class T = double> inline constexpr auto zeptolumen = prefix::zepto <T> * lumen <T>;
     template <class T = double> inline constexpr auto yoctolumen = prefix::yocto <T> * lumen <T>;
 
-    template <class T = double> inline constexpr auto lux = quantity_t <dimension::illuminance, T> { 1 };
+    template <class T = double> inline constexpr auto lux = quantity_t <dimension::illuminance, T> { static_cast <T> (1) };
     template <class T = double> inline constexpr auto yottalux = prefix::yotta <T> * lux <T>;
     template <class T = double> inline constexpr auto zettalux = prefix::zetta <T> * lux <T>;
     template <class T = double> inline constexpr auto exalux   = prefix::exa   <T> * lux <T>;
@@ -975,7 +975,7 @@ unit
     template <class T = double> inline constexpr auto zeptolux = prefix::zepto <T> * lux <T>;
     template <class T = double> inline constexpr auto yoctolux = prefix::yocto <T> * lux <T>;
 
-    template <class T = double> inline constexpr auto becquerel = quantity_t <dimension::activity_referred_to_a_radionuclide, T> { 1 };
+    template <class T = double> inline constexpr auto becquerel = quantity_t <dimension::activity_referred_to_a_radionuclide, T> { static_cast <T> (1) };
     template <class T = double> inline constexpr auto yottabecquerel = prefix::yotta <T> * becquerel <T>;
     template <class T = double> inline constexpr auto zettabecquerel = prefix::zetta <T> * becquerel <T>;
     template <class T = double> inline constexpr auto exabecquerel   = prefix::exa   <T> * becquerel <T>;
@@ -997,7 +997,7 @@ unit
     template <class T = double> inline constexpr auto zeptobecquerel = prefix::zepto <T> * becquerel <T>;
     template <class T = double> inline constexpr auto yoctobecquerel = prefix::yocto <T> * becquerel <T>;
 
-    template <class T = double> inline constexpr auto gray = quantity_t <dimension::absorbed_dose, T> { 1 };
+    template <class T = double> inline constexpr auto gray = quantity_t <dimension::absorbed_dose, T> { static_cast <T> (1) };
     template <class T = double> inline constexpr auto yottagray = prefix::yotta <T> * gray <T>;
     template <class T = double> inline constexpr auto zettagray = prefix::zetta <T> * gray <T>;
     template <class T = double> inline constexpr auto exagray   = prefix::exa   <T> * gray <T>;
@@ -1019,7 +1019,7 @@ unit
     template <class T = double> inline constexpr auto zeptogray = prefix::zepto <T> * gray <T>;
     template <class T = double> inline constexpr auto yoctogray = prefix::yocto <T> * gray <T>;
 
-    template <class T = double> inline constexpr auto sievert = quantity_t <dimension::dose_equivalent, T> { 1 };
+    template <class T = double> inline constexpr auto sievert = quantity_t <dimension::dose_equivalent, T> { static_cast <T> (1) };
     template <class T = double> inline constexpr auto yottasievert = prefix::yotta <T> * sievert <T>;
     template <class T = double> inline constexpr auto zettasievert = prefix::zetta <T> * sievert <T>;
     template <class T = double> inline constexpr auto exasievert   = prefix::exa   <T> * sievert <T>;
@@ -1041,7 +1041,7 @@ unit
     template <class T = double> inline constexpr auto zeptosievert = prefix::zepto <T> * sievert <T>;
     template <class T = double> inline constexpr auto yoctosievert = prefix::yocto <T> * sievert <T>;
 
-    template <class T = double> inline constexpr auto katal = quantity_t <dimension::catalytic_activity, T> { 1 };
+    template <class T = double> inline constexpr auto katal = quantity_t <dimension::catalytic_activity, T> { static_cast <T> (1) };
     template <class T = double> inline constexpr auto yottakatal = prefix::yotta <T> * katal <T>;
     template <class T = double> inline constexpr auto zettakatal = prefix::zetta <T> * katal <T>;
     template <class T = double> inline constexpr auto exakatal   = prefix::exa   <T> * katal <T>;
