@@ -38,6 +38,7 @@ density                              "mass / volume"
 massic_energy                        "energy / mass"
 entropy                              "energy / thermodynamic_temperature"
 massic_entropy                       "entropy / mass"
+massic_volume                        "volume / mass"
 
 # ALIASES
 temperature                          "thermodynamic_temperature"

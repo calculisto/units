@@ -1,6 +1,7 @@
 #include <fmt/format.h>
     using fmt::format, fmt::print;
 #include <fstream>
+#include <vector>
 #include <sstream>
 #include <iomanip>
 
