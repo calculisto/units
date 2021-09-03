@@ -484,6 +484,25 @@ operator / (
 {
     return { a / b.magnitude };
 }
+    template <
+          dimension_t Dimension
+        , class ValueType
+        , class T
+    >
+    constexpr auto
+operator / (
+      quantity_t <Dimension, ValueType> const& a
+    , T const& b
+)
+    -> quantity_t <
+          Dimension
+        , decltype (
+            std::declval <T> () / std::declval <ValueType> ()
+          )
+       >
+{
+    return { a.magnitude / b };
+}
 
 // Some functions
     template <
