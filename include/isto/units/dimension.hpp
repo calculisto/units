@@ -13,8 +13,7 @@ dimension_t
 {
         static constexpr std::size_t
     count = 7;
-    // Workaround GCC bug 98216
-        std::array <float/*double*/, count>
+        std::array <double, count>
     data;
         constexpr auto&
     operator [] (std::size_t index) noexcept 
@@ -104,7 +103,8 @@ inverse (dimension_t a)
           std::begin (a.data)
         , std::end   (a.data)
         , std::begin (a.data)
-        , [](auto x){ return -x; }
+        // Bug ? see ~/isto/iapws/sandbox/float.cpp
+        , [](auto x){ return x == 0 ? x : -x; }
     );
     return a;
 }
