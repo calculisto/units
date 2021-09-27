@@ -527,6 +527,14 @@ sqrt (quantity_t <Dimension, ValueType> const& q)
     return pow <0.5> (q);
 }
     
+    template <dimension_t Dimension, class ValueType>
+    constexpr auto
+abs (quantity_t <Dimension, ValueType> const& q)
+{
+        using std::abs;
+    return quantity_t <Dimension, ValueType> { abs (q.magnitude) };
+}
+    
     namespace
 detail
 {
