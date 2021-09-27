@@ -262,6 +262,21 @@ quantity_t
     {
         return magnitude <=> other.magnitude;
     }
+
+        template <dimension_t D, class U>
+        constexpr auto
+    operator -= (quantity_t <D, U> const& a)
+    {
+        magnitude -= a.magnitude;
+        return *this;
+    }
+        template <dimension_t D, class U>
+        constexpr auto
+    operator += (quantity_t <D, U> const& a)
+    {
+        magnitude += a.magnitude;
+        return *this;
+    }
 };
 
     template <dimension_t D, class T>
@@ -315,7 +330,7 @@ operator != (
 {
     return a.magnitude != b.magnitude;
 }
-// Comparisons, external : senseless.
+// Comparisons, external: senseless.
 
 // Arithmetic, internal
     template <dimension_t Dimension, class ValueTYpe>
@@ -529,10 +544,11 @@ sqrt (quantity_t <Dimension, ValueType> const& q)
     
     template <dimension_t Dimension, class ValueType>
     constexpr auto
-abs (quantity_t <Dimension, ValueType> const& q)
+abs (quantity_t <Dimension, ValueType> q)
 {
         using std::abs;
-    return quantity_t <Dimension, ValueType> { abs (q.magnitude) };
+    q.magnitude = abs (q.magnitude);
+    return q;
 }
     
     namespace
