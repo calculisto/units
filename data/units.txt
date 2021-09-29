@@ -40,8 +40,8 @@ entropy                              "energy / thermodynamic_temperature"
 massic_entropy                       "entropy / mass"
 massic_volume                        "volume / mass"
 compressibility                      "pow <-1> (pressure)"
-expansion_coefficient                "pow <-1> (temperature)"
-pressure_coefficient                 "pressure / temperature"
+expansion_coefficient                "pow <-1> (thermodynamic_temperature)"
+pressure_coefficient                 "pressure / thermodynamic_temperature"
 
 # ALIASES
 temperature                          "thermodynamic_temperature"

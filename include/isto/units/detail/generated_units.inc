@@ -38,8 +38,8 @@ dimension
     inline constexpr auto massic_entropy = entropy / mass;
     inline constexpr auto massic_volume = volume / mass;
     inline constexpr auto compressibility = pow <-1> (pressure);
-    inline constexpr auto expansion_coefficient = pow <-1> (temperature);
-    inline constexpr auto pressure_coefficient = pressure / temperature;
+    inline constexpr auto expansion_coefficient = pow <-1> (thermodynamic_temperature);
+    inline constexpr auto pressure_coefficient = pressure / thermodynamic_temperature;
     inline constexpr auto temperature = thermodynamic_temperature;
     inline constexpr auto dimensionless = none;
     inline constexpr auto stress = pressure;
