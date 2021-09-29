@@ -39,6 +39,7 @@ massic_energy                        "energy / mass"
 entropy                              "energy / thermodynamic_temperature"
 massic_entropy                       "entropy / mass"
 massic_volume                        "volume / mass"
+compressibility                      "pow <-1> (pressure)"
 
 # ALIASES
 temperature                          "thermodynamic_temperature"

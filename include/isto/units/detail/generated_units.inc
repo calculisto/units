@@ -37,6 +37,7 @@ dimension
     inline constexpr auto entropy = energy / thermodynamic_temperature;
     inline constexpr auto massic_entropy = entropy / mass;
     inline constexpr auto massic_volume = volume / mass;
+    inline constexpr auto compressibility = pow <-1> (pressure);
     inline constexpr auto temperature = thermodynamic_temperature;
     inline constexpr auto dimensionless = none;
     inline constexpr auto stress = pressure;
@@ -94,6 +95,7 @@ names_to_values = std::unordered_map <std::string, dimension_t>
     { "entropy", entropy },
     { "massic_entropy", massic_entropy },
     { "massic_volume", massic_volume },
+    { "compressibility", compressibility },
     { "temperature", temperature },
     { "dimensionless", dimensionless },
     { "stress", stress },
@@ -151,6 +153,7 @@ values_to_names = std::unordered_map <dimension_t, std::string>
     { entropy, "entropy" },
     { massic_entropy, "massic_entropy" },
     { massic_volume, "massic_volume" },
+    { compressibility, "compressibility" },
     { temperature, "temperature" },
     { dimensionless, "dimensionless" },
     { stress, "stress" },
@@ -208,6 +211,7 @@ template <class T> using massic_energy_t = quantity_t <dimension::massic_energy,
 template <class T> using entropy_t = quantity_t <dimension::entropy, T>;
 template <class T> using massic_entropy_t = quantity_t <dimension::massic_entropy, T>;
 template <class T> using massic_volume_t = quantity_t <dimension::massic_volume, T>;
+template <class T> using compressibility_t = quantity_t <dimension::compressibility, T>;
 template <class T> using temperature_t = quantity_t <dimension::temperature, T>;
 template <class T> using dimensionless_t = quantity_t <dimension::dimensionless, T>;
 template <class T> using stress_t = quantity_t <dimension::stress, T>;
@@ -264,6 +268,7 @@ template <class T> concept massic_energy = T::dimension == dimension::massic_ene
 template <class T> concept entropy = T::dimension == dimension::entropy;
 template <class T> concept massic_entropy = T::dimension == dimension::massic_entropy;
 template <class T> concept massic_volume = T::dimension == dimension::massic_volume;
+template <class T> concept compressibility = T::dimension == dimension::compressibility;
 template <class T> concept temperature = T::dimension == dimension::temperature;
 template <class T> concept dimensionless = T::dimension == dimension::dimensionless;
 template <class T> concept stress = T::dimension == dimension::stress;
@@ -1328,6 +1333,7 @@ dimension_names_to_unit_names = std::unordered_map <std::string, std::vector <st
     { "entropy", { }},
     { "massic_entropy", { }},
     { "massic_volume", { }},
+    { "compressibility", { }},
     { "temperature", { "kelvin", }},
     { "dimensionless", { "none", }},
     { "stress", { "pascal", "bar", }},
@@ -1385,6 +1391,7 @@ dimensions_to_units = std::unordered_map <dimension_t, std::vector <any_quantity
     { dimension::entropy, { }},
     { dimension::massic_entropy, { }},
     { dimension::massic_volume, { }},
+    { dimension::compressibility, { }},
     { dimension::temperature, { kelvin <T>, }},
     { dimension::dimensionless, { none <T>, }},
     { dimension::stress, { pascal <T>, bar <T>, }},
