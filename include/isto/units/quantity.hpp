@@ -3,6 +3,7 @@
 #include <cmath>
 #include <stdexcept>
 #include <numeric>
+#include <complex>
 
     namespace
 isto::units
@@ -551,6 +552,30 @@ abs (quantity_t <Dimension, ValueType> q)
     return q;
 }
     
+    template <dimension_t Dimension, class ValueType>
+    constexpr auto
+real (quantity_t <Dimension, std::complex <ValueType>> const& q)
+{
+        using std::real;
+    return quantity_t <Dimension, ValueType> { 
+          real (q.magnitude)
+        , q.uncertainty 
+    };
+}
+    
+    template <dimension_t Dimension, class ValueType>
+    constexpr auto
+imag (quantity_t <Dimension, std::complex <ValueType>> const& q)
+{
+        using std::imag;
+    return quantity_t <Dimension, ValueType> { 
+          imag (q.magnitude)
+        , q.uncertainty 
+    };
+}
+    
+
+
     namespace
 detail
 {
