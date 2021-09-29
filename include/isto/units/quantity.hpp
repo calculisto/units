@@ -559,7 +559,6 @@ real (quantity_t <Dimension, std::complex <ValueType>> const& q)
         using std::real;
     return quantity_t <Dimension, ValueType> {
           real (q.magnitude)
-        , q.uncertainty
     };
 }
 
@@ -570,7 +569,6 @@ imag (quantity_t <Dimension, std::complex <ValueType>> const& q)
         using std::imag;
     return quantity_t <Dimension, ValueType> {
           imag (q.magnitude)
-        , q.uncertainty
     };
 }
 
