@@ -23,15 +23,15 @@ any_quantity_t
         dimension_t
     dimension;
 
-        constexpr 
+        constexpr
     any_quantity_t () = default;
-        constexpr 
+        constexpr
     any_quantity_t (ValueType const& m, dimension_t const& d)
         : magnitude { m }
         , dimension { d }
     {}
         template <dimension_t Dimension, class T>
-        constexpr 
+        constexpr
     any_quantity_t (quantity_t <Dimension, T> const& q)
         : magnitude { q.magnitude }
         , dimension { Dimension }
@@ -49,17 +49,17 @@ any_quantity_t
     }
 };
         template <dimension_t Dimension, class T>
-any_quantity_t (quantity_t <Dimension, T> const&) 
+any_quantity_t (quantity_t <Dimension, T> const&)
     -> any_quantity_t <T>;
 
     struct
-quantity_conversion_error 
+quantity_conversion_error
 {};
 
 } // namespace isto::units
 
 
-    namespace 
+    namespace
 std
 {
         using isto::units::any_quantity_t;
@@ -117,26 +117,26 @@ operator + (any_quantity_t <ValueTYpe> a)
     return a;
 }
     template <class ValueType1, class ValueType2>
-    constexpr auto 
+    constexpr auto
 operator * (
       any_quantity_t <ValueType1> const& a
     , any_quantity_t <ValueType2> const& b
 )
     -> any_quantity_t <decltype (
-          std::declval <ValueType1> () 
+          std::declval <ValueType1> ()
         * std::declval <ValueType2> ()
        )>
 {
     return { a.magnitude * b.magnitude, a.dimension * b.dimension };
 }
     template <class ValueType1, class ValueType2>
-    constexpr auto 
+    constexpr auto
 operator / (
       any_quantity_t <ValueType1> const& a
     , any_quantity_t <ValueType2> const& b
 )
     -> any_quantity_t <decltype (
-          std::declval <ValueType1> () 
+          std::declval <ValueType1> ()
         / std::declval <ValueType2> ()
        )>
 
@@ -144,13 +144,13 @@ operator / (
     return { a.magnitude / b.magnitude, a.dimension / b.dimension };
 }
     template <class ValueType1, class ValueType2>
-    constexpr auto 
+    constexpr auto
 operator + (
       any_quantity_t <ValueType1> const& a
     , any_quantity_t <ValueType2> const& b
 )
     -> any_quantity_t <decltype (
-          std::declval <ValueType1> () 
+          std::declval <ValueType1> ()
         + std::declval <ValueType2> ()
        )>
 
@@ -159,13 +159,13 @@ operator + (
     return { a.magnitude + b.magnitude, a.dimension };
 }
     template <class ValueType1, class ValueType2>
-    constexpr auto 
+    constexpr auto
 operator - (
       any_quantity_t <ValueType1> const& a
     , any_quantity_t <ValueType2> const& b
 )
     -> any_quantity_t <decltype (
-          std::declval <ValueType1> () 
+          std::declval <ValueType1> ()
         - std::declval <ValueType2> ()
        )>
 
@@ -289,10 +289,10 @@ quantity_t (T&&) -> quantity_t <D, T>;
 // A trait
     template <class ValueType>
     struct
-is_quantity 
+is_quantity
     : std::false_type
 {};
-    
+
     template <dimension_t Dimension, class ValueType>
     struct
 is_quantity <quantity_t <Dimension, ValueType>>
@@ -530,19 +530,19 @@ operator / (
 pow (quantity_t <Dimension, ValueType> const& q)
 {
         using std::pow;
-    return quantity_t <pow <Exponent> (Dimension), ValueType> 
-    { 
-        pow (q.magnitude, Exponent) 
+    return quantity_t <pow <Exponent> (Dimension), ValueType>
+    {
+        pow (q.magnitude, Exponent)
     };
 }
-    
+
     template <dimension_t Dimension, class ValueType>
     constexpr auto
 sqrt (quantity_t <Dimension, ValueType> const& q)
 {
     return pow <0.5> (q);
 }
-    
+
     template <dimension_t Dimension, class ValueType>
     constexpr auto
 abs (quantity_t <Dimension, ValueType> q)
@@ -551,29 +551,29 @@ abs (quantity_t <Dimension, ValueType> q)
     q.magnitude = abs (q.magnitude);
     return q;
 }
-    
+
     template <dimension_t Dimension, class ValueType>
     constexpr auto
 real (quantity_t <Dimension, std::complex <ValueType>> const& q)
 {
         using std::real;
-    return quantity_t <Dimension, ValueType> { 
+    return quantity_t <Dimension, ValueType> {
           real (q.magnitude)
-        , q.uncertainty 
+        , q.uncertainty
     };
 }
-    
+
     template <dimension_t Dimension, class ValueType>
     constexpr auto
 imag (quantity_t <Dimension, std::complex <ValueType>> const& q)
 {
         using std::imag;
-    return quantity_t <Dimension, ValueType> { 
+    return quantity_t <Dimension, ValueType> {
           imag (q.magnitude)
-        , q.uncertainty 
+        , q.uncertainty
     };
 }
-    
+
 
 
     namespace
@@ -656,6 +656,6 @@ split (any_quantity_t <ValueType> const& q)
     */
     throw std::runtime_error {"IIP"};
 }
-    
+
 } // namespace isto::units
 // vim: fdm=marker
