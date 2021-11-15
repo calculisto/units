@@ -25,6 +25,12 @@ data_t
         std::vector <unit_t>
     units;
 };
+    auto
+capitalize (std::string word)
+{
+    word[0] = toupper (word[0]);
+    return word;
+}
 
     int
 main ()
@@ -152,16 +158,14 @@ out << R"(
     }
     out << "\n";
     
-    out << "    namespace\nconcepts\n{\n";
     for (auto&& [dim, def, uni]: data)
     {
-        out << format ("template <class T> concept {0} = T::dimension == dimension::{0};\n", dim);
+        out << format ("template <class T> concept {0} = T::dimension == dimension::{1};\n", capitalize (dim), dim);
     }
     for (auto&& [dim, def]: aliases)
     {
-        out << format ("template <class T> concept {0} = T::dimension == dimension::{0};\n", dim);
+        out << format ("template <class T> concept {0} = T::dimension == dimension::{1};\n", capitalize (dim), dim);
     }
-    out << "} // namespace concepts\n";
 
 out << R"(
     namespace

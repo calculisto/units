@@ -65,7 +65,7 @@ TEST_CASE("units")
     }
     SUBCASE("concepts")
     {
-        static_assert (concepts::pressure <decltype (unit::pascal <>)>);
+        static_assert (Pressure <decltype (unit::pascal <>)>);
     }
     SUBCASE("base_unit_symbol")
     {
