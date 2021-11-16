@@ -6,11 +6,10 @@ validation of operations on quantities, dynamic (run-time) qunatities and
 physical units.
 
 
-Requirements
+Dependencies
 ------------
 
 - The `fmtlib/fmt library <https://github.com/fmtlib/fmt>`_.
-- The `isto::hash_combine library <https://github.com/le-migou/hash_combine>`_.
 - The `taocpp/pegtl library <https://github.com/taocpp/pegtl>`_ (to parse units).
 
 To run the tests:

@@ -1,6 +1,6 @@
 #pragma once
 #include <array>
-#include <isto/hash_combine/hash_combine.hpp>
+#include "detail/hash_combine.hpp"
     using isto::hash_combine::hash_combine;
     using isto::hash_combine::hash_combine_range;
 
