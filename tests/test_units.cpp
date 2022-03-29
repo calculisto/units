@@ -104,4 +104,10 @@ TEST_CASE("units")
             == dimension::length * dimension::mass / dimension::time
         );
     };
+    SUBCASE("CTAD")
+    {
+            [[maybe_unused]]
+            const auto
+        d = density_t { 2. };
+    }
 };

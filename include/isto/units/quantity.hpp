@@ -224,6 +224,11 @@ quantity_t
         using
     value_type = ValueType;
 
+        constexpr 
+    quantity_t (ValueType v)
+        : magnitude { v }
+    {}
+
         ValueType
     magnitude;
 
