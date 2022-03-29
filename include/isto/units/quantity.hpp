@@ -279,13 +279,16 @@ quantity_t
         return *this;
     }
 };
+/* GCC accepts this, clang does not. According to 
+   https://stackoverflow.com/a/58492550/4499346
+   clang is right.
 
     template <dimension_t D, class T>
 quantity_t (any_quantity_t <T> const&) -> quantity_t <D, T>;
 
     template <dimension_t D, class T>
 quantity_t (T&&) -> quantity_t <D, T>;
-
+*/
 // A trait
     template <class ValueType>
     struct
@@ -610,7 +613,7 @@ detail
 
     template <class ValueType>
     auto
-split (any_quantity_t <ValueType> const& q)
+split (any_quantity_t <ValueType> const& /*q*/)
 {
     /*
     if (q.dimension == dimension::one) return unit::none <ValueType>;

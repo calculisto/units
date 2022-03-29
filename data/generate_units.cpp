@@ -4,6 +4,7 @@
 #include <vector>
 #include <sstream>
 #include <iomanip>
+#include <algorithm>
 
     struct
 unit_t
@@ -91,11 +92,11 @@ main ()
             aliases.emplace_back (dimension, definition);
             continue;
         }
-        data.emplace_back ( 
+        data.push_back (data_t {
               std::move (dimension)
             , std::move (definition)
             , std::move (units)
-        );
+        });
     }
         auto
     out = std::ofstream { "../include/isto/units/detail/generated_units.inc" };
@@ -412,8 +413,12 @@ dimension_names_to_unit_names = std::unordered_map <std::string, std::vector <st
     }
     for (auto&& [dim, def]: aliases)
     {
+        /* https://stackoverflow.com/a/46115028/4499346
             auto
         target = std::find_if (data.begin (), data.end (), [&](auto x){ return x.dimension == def; });
+        */
+            auto
+        target = std::find_if (data.begin (), data.end (), [&, def=def](auto x){ return x.dimension == def; });
         out << format ("    {{ \"{}\", {{ ", dim);
         for (auto&& [u_nam, u_sym, u_mag]: target->units)
         {
@@ -440,7 +445,7 @@ dimensions_to_units = std::unordered_map <dimension_t, std::vector <any_quantity
     for (auto&& [dim, def]: aliases)
     {
             auto
-        target = std::find_if (data.begin (), data.end (), [&](auto x){ return x.dimension == def; });
+        target = std::find_if (data.begin (), data.end (), [&, def=def](auto x){ return x.dimension == def; });
         out << format ("    {{ dimension::{}, {{ ", dim);
         for (auto&& [u_nam, u_sym, u_mag]: target->units)
         {
