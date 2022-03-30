@@ -110,4 +110,12 @@ TEST_CASE("units")
             const auto
         d = density_t { 2. };
     }
+    SUBCASE("magnitude")
+    {
+            constexpr auto
+        x = 4. * unit::metre <>;
+            constexpr auto
+        y = magnitude <unit::centimetre <>> (x);
+        CHECK (y == 400.);
+    }
 };

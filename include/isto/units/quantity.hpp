@@ -580,6 +580,13 @@ imag (quantity_t <Dimension, std::complex <ValueType>> const& q)
     };
 }
 
+    template <auto Quantity, dimension_t Dimension, class ValueType>
+    constexpr auto
+magnitude (quantity_t <Dimension, ValueType> const& q)
+{
+    static_assert (Quantity.dimension == Dimension);
+    return q.magnitude / Quantity.magnitude;
+}
 
 
     namespace
