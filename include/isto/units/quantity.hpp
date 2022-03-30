@@ -70,7 +70,7 @@ std
             std::size_t
         operator () (any_quantity_t <T> const& q) const
         {
-            return hash_combine (q.magnitude, q.dimension);
+            return isto::hash_combine::hash_combine (q.magnitude, q.dimension);
         }
     };
 } // namespace std

@@ -118,4 +118,8 @@ TEST_CASE("units")
         y = magnitude <unit::centimetre <>> (x);
         CHECK (y == 400.);
     }
+    SUBCASE("shifted units")
+    {
+        // TODO
+    }
 };
