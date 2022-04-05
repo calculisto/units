@@ -562,6 +562,15 @@ abs (quantity_t <Dimension, ValueType> q)
 
     template <dimension_t Dimension, class ValueType>
     constexpr auto
+fabs (quantity_t <Dimension, ValueType> q)
+{
+        using std::fabs;
+    q.magnitude = fabs (q.magnitude);
+    return q;
+}
+
+    template <dimension_t Dimension, class ValueType>
+    constexpr auto
 real (quantity_t <Dimension, std::complex <ValueType>> const& q)
 {
         using std::real;
