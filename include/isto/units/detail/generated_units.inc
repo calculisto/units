@@ -14,7 +14,7 @@ dimension
     inline constexpr auto force = mass * length * pow <-2> (time);
     inline constexpr auto pressure = mass * pow <-1> (length) * pow <-2> (time);
     inline constexpr auto energy = mass * pow <2> (length) * pow <-2> (time);
-    inline constexpr auto work = mass * pow <2> (length) * pow <-2> (time);
+    inline constexpr auto work = mass * pow <2> (length) * pow <-3> (time);
     inline constexpr auto electric_charge = electric_current * time;
     inline constexpr auto electric_potential_difference = mass * pow <2> (length) * pow <-3> (time) * pow <-1> (electric_current);
     inline constexpr auto capacitance = pow <-1> (mass) * pow <-2> (length) * pow <4> (time) * pow <2> (electric_current);
@@ -121,6 +121,9 @@ names_to_values = std::unordered_map <std::string, dimension_t>
     { "massic_enthalpy", massic_enthalpy },
 
 };
+/* XXX Do not use, will probably not work as intended because of dimenaion
+ * aliases (e.g. massic_energy and absorbed_dose).
+ */
     inline const auto
 values_to_names = std::unordered_map <dimension_t, std::string>
 {
@@ -180,6 +183,86 @@ values_to_names = std::unordered_map <dimension_t, std::string>
     { heat_capacity, "heat_capacity" },
     { massic_heat_capacity, "massic_heat_capacity" },
     { massic_enthalpy, "massic_enthalpy" },
+
+};
+
+    inline const auto
+preferred_unit_name = std::unordered_map <std::string, std::string>
+{
+    { "none", "none" },
+    { "length", "metre" },
+    { "mass", "gram" },
+    { "time", "second" },
+    { "electric_current", "ampere" },
+    { "thermodynamic_temperature", "kelvin" },
+    { "amount_of_substance", "mole" },
+    { "luminous_intensity", "candela" },
+    { "frequency", "hertz" },
+    { "force", "newton" },
+    { "pressure", "pascal" },
+    { "energy", "joule" },
+    { "work", "watt" },
+    { "electric_charge", "coulomb" },
+    { "electric_potential_difference", "volt" },
+    { "capacitance", "farad" },
+    { "electric_resistance", "ohm" },
+    { "electric_conductance", "siemens" },
+    { "magnetic_flux", "weber" },
+    { "magnetic_flux_density", "tesla" },
+    { "inductance", "henry" },
+    { "luminous_flux", "lumen" },
+    { "illuminance", "lux" },
+    { "activity_referred_to_a_radionuclide", "becquerel" },
+    { "absorbed_dose", "gray" },
+    { "dose_equivalent", "sievert" },
+    { "catalytic_activity", "katal" },
+    { "velocity", "metre_per_second" },
+    { "area", "square_metre" },
+    { "volume", "cubic_metre" },
+    { "density", "kilogram_per_cubic_metre" },
+    { "massic_energy", "joule_per_kilogram" },
+    { "entropy", "joule_per_kelvin" },
+    { "massic_entropy", "joule_per_kelvin_kilogram" },
+
+};
+
+    inline const auto
+preferred_unit_symbol = std::unordered_map <std::string, std::string>
+{
+    { "none", "_" },
+    { "length", "m" },
+    { "mass", "g" },
+    { "time", "s" },
+    { "electric_current", "A" },
+    { "thermodynamic_temperature", "K" },
+    { "amount_of_substance", "mol" },
+    { "luminous_intensity", "cd" },
+    { "frequency", "Hz" },
+    { "force", "N" },
+    { "pressure", "Pa" },
+    { "energy", "J" },
+    { "work", "W" },
+    { "electric_charge", "C" },
+    { "electric_potential_difference", "V" },
+    { "capacitance", "F" },
+    { "electric_resistance", "Ω" },
+    { "electric_conductance", "S" },
+    { "magnetic_flux", "Wb" },
+    { "magnetic_flux_density", "T" },
+    { "inductance", "H" },
+    { "luminous_flux", "lu" },
+    { "illuminance", "lx" },
+    { "activity_referred_to_a_radionuclide", "Bq" },
+    { "absorbed_dose", "Gy" },
+    { "dose_equivalent", "Sv" },
+    { "catalytic_activity", "kat" },
+    { "velocity", "m.s-1" },
+    { "area", "m2" },
+    { "volume", "m3" },
+    { "density", "kg.m-3" },
+    { "massic_energy", "J.kg-1" },
+    { "entropy", "J.K-1" },
+    { "massic_entropy", "J.K-1.kg-1" },
 
 };
 
@@ -1079,6 +1162,160 @@ unit
     template <class T = double> inline constexpr auto zeptokatal = prefix::zepto <T> * katal <T>;
     template <class T = double> inline constexpr auto yoctokatal = prefix::yocto <T> * katal <T>;
 
+    template <class T = double> inline constexpr auto metre_per_second = quantity_t <dimension::velocity, T> { static_cast <T> (1) };
+    template <class T = double> inline constexpr auto yottametre_per_second = prefix::yotta <T> * metre_per_second <T>;
+    template <class T = double> inline constexpr auto zettametre_per_second = prefix::zetta <T> * metre_per_second <T>;
+    template <class T = double> inline constexpr auto exametre_per_second   = prefix::exa   <T> * metre_per_second <T>;
+    template <class T = double> inline constexpr auto petametre_per_second  = prefix::peta  <T> * metre_per_second <T>;
+    template <class T = double> inline constexpr auto terametre_per_second  = prefix::tera  <T> * metre_per_second <T>;
+    template <class T = double> inline constexpr auto gigametre_per_second  = prefix::giga  <T> * metre_per_second <T>;
+    template <class T = double> inline constexpr auto megametre_per_second  = prefix::mega  <T> * metre_per_second <T>;
+    template <class T = double> inline constexpr auto kilometre_per_second  = prefix::kilo  <T> * metre_per_second <T>;
+    template <class T = double> inline constexpr auto hectometre_per_second = prefix::hecto <T> * metre_per_second <T>;
+    template <class T = double> inline constexpr auto decametre_per_second  = prefix::deca  <T> * metre_per_second <T>;
+    template <class T = double> inline constexpr auto decimetre_per_second  = prefix::deci  <T> * metre_per_second <T>;
+    template <class T = double> inline constexpr auto centimetre_per_second = prefix::centi <T> * metre_per_second <T>;
+    template <class T = double> inline constexpr auto millimetre_per_second = prefix::milli <T> * metre_per_second <T>;
+    template <class T = double> inline constexpr auto micrometre_per_second = prefix::micro <T> * metre_per_second <T>;
+    template <class T = double> inline constexpr auto nanometre_per_second  = prefix::nano  <T> * metre_per_second <T>;
+    template <class T = double> inline constexpr auto picometre_per_second  = prefix::pico  <T> * metre_per_second <T>;
+    template <class T = double> inline constexpr auto femtometre_per_second = prefix::femto <T> * metre_per_second <T>;
+    template <class T = double> inline constexpr auto attometre_per_second  = prefix::femto <T> * metre_per_second <T>;
+    template <class T = double> inline constexpr auto zeptometre_per_second = prefix::zepto <T> * metre_per_second <T>;
+    template <class T = double> inline constexpr auto yoctometre_per_second = prefix::yocto <T> * metre_per_second <T>;
+
+    template <class T = double> inline constexpr auto square_metre = quantity_t <dimension::area, T> { static_cast <T> (1) };
+    template <class T = double> inline constexpr auto yottasquare_metre = prefix::yotta <T> * square_metre <T>;
+    template <class T = double> inline constexpr auto zettasquare_metre = prefix::zetta <T> * square_metre <T>;
+    template <class T = double> inline constexpr auto exasquare_metre   = prefix::exa   <T> * square_metre <T>;
+    template <class T = double> inline constexpr auto petasquare_metre  = prefix::peta  <T> * square_metre <T>;
+    template <class T = double> inline constexpr auto terasquare_metre  = prefix::tera  <T> * square_metre <T>;
+    template <class T = double> inline constexpr auto gigasquare_metre  = prefix::giga  <T> * square_metre <T>;
+    template <class T = double> inline constexpr auto megasquare_metre  = prefix::mega  <T> * square_metre <T>;
+    template <class T = double> inline constexpr auto kilosquare_metre  = prefix::kilo  <T> * square_metre <T>;
+    template <class T = double> inline constexpr auto hectosquare_metre = prefix::hecto <T> * square_metre <T>;
+    template <class T = double> inline constexpr auto decasquare_metre  = prefix::deca  <T> * square_metre <T>;
+    template <class T = double> inline constexpr auto decisquare_metre  = prefix::deci  <T> * square_metre <T>;
+    template <class T = double> inline constexpr auto centisquare_metre = prefix::centi <T> * square_metre <T>;
+    template <class T = double> inline constexpr auto millisquare_metre = prefix::milli <T> * square_metre <T>;
+    template <class T = double> inline constexpr auto microsquare_metre = prefix::micro <T> * square_metre <T>;
+    template <class T = double> inline constexpr auto nanosquare_metre  = prefix::nano  <T> * square_metre <T>;
+    template <class T = double> inline constexpr auto picosquare_metre  = prefix::pico  <T> * square_metre <T>;
+    template <class T = double> inline constexpr auto femtosquare_metre = prefix::femto <T> * square_metre <T>;
+    template <class T = double> inline constexpr auto attosquare_metre  = prefix::femto <T> * square_metre <T>;
+    template <class T = double> inline constexpr auto zeptosquare_metre = prefix::zepto <T> * square_metre <T>;
+    template <class T = double> inline constexpr auto yoctosquare_metre = prefix::yocto <T> * square_metre <T>;
+
+    template <class T = double> inline constexpr auto cubic_metre = quantity_t <dimension::volume, T> { static_cast <T> (1) };
+    template <class T = double> inline constexpr auto yottacubic_metre = prefix::yotta <T> * cubic_metre <T>;
+    template <class T = double> inline constexpr auto zettacubic_metre = prefix::zetta <T> * cubic_metre <T>;
+    template <class T = double> inline constexpr auto exacubic_metre   = prefix::exa   <T> * cubic_metre <T>;
+    template <class T = double> inline constexpr auto petacubic_metre  = prefix::peta  <T> * cubic_metre <T>;
+    template <class T = double> inline constexpr auto teracubic_metre  = prefix::tera  <T> * cubic_metre <T>;
+    template <class T = double> inline constexpr auto gigacubic_metre  = prefix::giga  <T> * cubic_metre <T>;
+    template <class T = double> inline constexpr auto megacubic_metre  = prefix::mega  <T> * cubic_metre <T>;
+    template <class T = double> inline constexpr auto kilocubic_metre  = prefix::kilo  <T> * cubic_metre <T>;
+    template <class T = double> inline constexpr auto hectocubic_metre = prefix::hecto <T> * cubic_metre <T>;
+    template <class T = double> inline constexpr auto decacubic_metre  = prefix::deca  <T> * cubic_metre <T>;
+    template <class T = double> inline constexpr auto decicubic_metre  = prefix::deci  <T> * cubic_metre <T>;
+    template <class T = double> inline constexpr auto centicubic_metre = prefix::centi <T> * cubic_metre <T>;
+    template <class T = double> inline constexpr auto millicubic_metre = prefix::milli <T> * cubic_metre <T>;
+    template <class T = double> inline constexpr auto microcubic_metre = prefix::micro <T> * cubic_metre <T>;
+    template <class T = double> inline constexpr auto nanocubic_metre  = prefix::nano  <T> * cubic_metre <T>;
+    template <class T = double> inline constexpr auto picocubic_metre  = prefix::pico  <T> * cubic_metre <T>;
+    template <class T = double> inline constexpr auto femtocubic_metre = prefix::femto <T> * cubic_metre <T>;
+    template <class T = double> inline constexpr auto attocubic_metre  = prefix::femto <T> * cubic_metre <T>;
+    template <class T = double> inline constexpr auto zeptocubic_metre = prefix::zepto <T> * cubic_metre <T>;
+    template <class T = double> inline constexpr auto yoctocubic_metre = prefix::yocto <T> * cubic_metre <T>;
+
+    template <class T = double> inline constexpr auto kilogram_per_cubic_metre = quantity_t <dimension::density, T> { static_cast <T> (1) };
+    template <class T = double> inline constexpr auto yottakilogram_per_cubic_metre = prefix::yotta <T> * kilogram_per_cubic_metre <T>;
+    template <class T = double> inline constexpr auto zettakilogram_per_cubic_metre = prefix::zetta <T> * kilogram_per_cubic_metre <T>;
+    template <class T = double> inline constexpr auto exakilogram_per_cubic_metre   = prefix::exa   <T> * kilogram_per_cubic_metre <T>;
+    template <class T = double> inline constexpr auto petakilogram_per_cubic_metre  = prefix::peta  <T> * kilogram_per_cubic_metre <T>;
+    template <class T = double> inline constexpr auto terakilogram_per_cubic_metre  = prefix::tera  <T> * kilogram_per_cubic_metre <T>;
+    template <class T = double> inline constexpr auto gigakilogram_per_cubic_metre  = prefix::giga  <T> * kilogram_per_cubic_metre <T>;
+    template <class T = double> inline constexpr auto megakilogram_per_cubic_metre  = prefix::mega  <T> * kilogram_per_cubic_metre <T>;
+    template <class T = double> inline constexpr auto kilokilogram_per_cubic_metre  = prefix::kilo  <T> * kilogram_per_cubic_metre <T>;
+    template <class T = double> inline constexpr auto hectokilogram_per_cubic_metre = prefix::hecto <T> * kilogram_per_cubic_metre <T>;
+    template <class T = double> inline constexpr auto decakilogram_per_cubic_metre  = prefix::deca  <T> * kilogram_per_cubic_metre <T>;
+    template <class T = double> inline constexpr auto decikilogram_per_cubic_metre  = prefix::deci  <T> * kilogram_per_cubic_metre <T>;
+    template <class T = double> inline constexpr auto centikilogram_per_cubic_metre = prefix::centi <T> * kilogram_per_cubic_metre <T>;
+    template <class T = double> inline constexpr auto millikilogram_per_cubic_metre = prefix::milli <T> * kilogram_per_cubic_metre <T>;
+    template <class T = double> inline constexpr auto microkilogram_per_cubic_metre = prefix::micro <T> * kilogram_per_cubic_metre <T>;
+    template <class T = double> inline constexpr auto nanokilogram_per_cubic_metre  = prefix::nano  <T> * kilogram_per_cubic_metre <T>;
+    template <class T = double> inline constexpr auto picokilogram_per_cubic_metre  = prefix::pico  <T> * kilogram_per_cubic_metre <T>;
+    template <class T = double> inline constexpr auto femtokilogram_per_cubic_metre = prefix::femto <T> * kilogram_per_cubic_metre <T>;
+    template <class T = double> inline constexpr auto attokilogram_per_cubic_metre  = prefix::femto <T> * kilogram_per_cubic_metre <T>;
+    template <class T = double> inline constexpr auto zeptokilogram_per_cubic_metre = prefix::zepto <T> * kilogram_per_cubic_metre <T>;
+    template <class T = double> inline constexpr auto yoctokilogram_per_cubic_metre = prefix::yocto <T> * kilogram_per_cubic_metre <T>;
+
+    template <class T = double> inline constexpr auto joule_per_kilogram = quantity_t <dimension::massic_energy, T> { static_cast <T> (1) };
+    template <class T = double> inline constexpr auto yottajoule_per_kilogram = prefix::yotta <T> * joule_per_kilogram <T>;
+    template <class T = double> inline constexpr auto zettajoule_per_kilogram = prefix::zetta <T> * joule_per_kilogram <T>;
+    template <class T = double> inline constexpr auto exajoule_per_kilogram   = prefix::exa   <T> * joule_per_kilogram <T>;
+    template <class T = double> inline constexpr auto petajoule_per_kilogram  = prefix::peta  <T> * joule_per_kilogram <T>;
+    template <class T = double> inline constexpr auto terajoule_per_kilogram  = prefix::tera  <T> * joule_per_kilogram <T>;
+    template <class T = double> inline constexpr auto gigajoule_per_kilogram  = prefix::giga  <T> * joule_per_kilogram <T>;
+    template <class T = double> inline constexpr auto megajoule_per_kilogram  = prefix::mega  <T> * joule_per_kilogram <T>;
+    template <class T = double> inline constexpr auto kilojoule_per_kilogram  = prefix::kilo  <T> * joule_per_kilogram <T>;
+    template <class T = double> inline constexpr auto hectojoule_per_kilogram = prefix::hecto <T> * joule_per_kilogram <T>;
+    template <class T = double> inline constexpr auto decajoule_per_kilogram  = prefix::deca  <T> * joule_per_kilogram <T>;
+    template <class T = double> inline constexpr auto decijoule_per_kilogram  = prefix::deci  <T> * joule_per_kilogram <T>;
+    template <class T = double> inline constexpr auto centijoule_per_kilogram = prefix::centi <T> * joule_per_kilogram <T>;
+    template <class T = double> inline constexpr auto millijoule_per_kilogram = prefix::milli <T> * joule_per_kilogram <T>;
+    template <class T = double> inline constexpr auto microjoule_per_kilogram = prefix::micro <T> * joule_per_kilogram <T>;
+    template <class T = double> inline constexpr auto nanojoule_per_kilogram  = prefix::nano  <T> * joule_per_kilogram <T>;
+    template <class T = double> inline constexpr auto picojoule_per_kilogram  = prefix::pico  <T> * joule_per_kilogram <T>;
+    template <class T = double> inline constexpr auto femtojoule_per_kilogram = prefix::femto <T> * joule_per_kilogram <T>;
+    template <class T = double> inline constexpr auto attojoule_per_kilogram  = prefix::femto <T> * joule_per_kilogram <T>;
+    template <class T = double> inline constexpr auto zeptojoule_per_kilogram = prefix::zepto <T> * joule_per_kilogram <T>;
+    template <class T = double> inline constexpr auto yoctojoule_per_kilogram = prefix::yocto <T> * joule_per_kilogram <T>;
+
+    template <class T = double> inline constexpr auto joule_per_kelvin = quantity_t <dimension::entropy, T> { static_cast <T> (1) };
+    template <class T = double> inline constexpr auto yottajoule_per_kelvin = prefix::yotta <T> * joule_per_kelvin <T>;
+    template <class T = double> inline constexpr auto zettajoule_per_kelvin = prefix::zetta <T> * joule_per_kelvin <T>;
+    template <class T = double> inline constexpr auto exajoule_per_kelvin   = prefix::exa   <T> * joule_per_kelvin <T>;
+    template <class T = double> inline constexpr auto petajoule_per_kelvin  = prefix::peta  <T> * joule_per_kelvin <T>;
+    template <class T = double> inline constexpr auto terajoule_per_kelvin  = prefix::tera  <T> * joule_per_kelvin <T>;
+    template <class T = double> inline constexpr auto gigajoule_per_kelvin  = prefix::giga  <T> * joule_per_kelvin <T>;
+    template <class T = double> inline constexpr auto megajoule_per_kelvin  = prefix::mega  <T> * joule_per_kelvin <T>;
+    template <class T = double> inline constexpr auto kilojoule_per_kelvin  = prefix::kilo  <T> * joule_per_kelvin <T>;
+    template <class T = double> inline constexpr auto hectojoule_per_kelvin = prefix::hecto <T> * joule_per_kelvin <T>;
+    template <class T = double> inline constexpr auto decajoule_per_kelvin  = prefix::deca  <T> * joule_per_kelvin <T>;
+    template <class T = double> inline constexpr auto decijoule_per_kelvin  = prefix::deci  <T> * joule_per_kelvin <T>;
+    template <class T = double> inline constexpr auto centijoule_per_kelvin = prefix::centi <T> * joule_per_kelvin <T>;
+    template <class T = double> inline constexpr auto millijoule_per_kelvin = prefix::milli <T> * joule_per_kelvin <T>;
+    template <class T = double> inline constexpr auto microjoule_per_kelvin = prefix::micro <T> * joule_per_kelvin <T>;
+    template <class T = double> inline constexpr auto nanojoule_per_kelvin  = prefix::nano  <T> * joule_per_kelvin <T>;
+    template <class T = double> inline constexpr auto picojoule_per_kelvin  = prefix::pico  <T> * joule_per_kelvin <T>;
+    template <class T = double> inline constexpr auto femtojoule_per_kelvin = prefix::femto <T> * joule_per_kelvin <T>;
+    template <class T = double> inline constexpr auto attojoule_per_kelvin  = prefix::femto <T> * joule_per_kelvin <T>;
+    template <class T = double> inline constexpr auto zeptojoule_per_kelvin = prefix::zepto <T> * joule_per_kelvin <T>;
+    template <class T = double> inline constexpr auto yoctojoule_per_kelvin = prefix::yocto <T> * joule_per_kelvin <T>;
+
+    template <class T = double> inline constexpr auto joule_per_kelvin_kilogram = quantity_t <dimension::massic_entropy, T> { static_cast <T> (1) };
+    template <class T = double> inline constexpr auto yottajoule_per_kelvin_kilogram = prefix::yotta <T> * joule_per_kelvin_kilogram <T>;
+    template <class T = double> inline constexpr auto zettajoule_per_kelvin_kilogram = prefix::zetta <T> * joule_per_kelvin_kilogram <T>;
+    template <class T = double> inline constexpr auto exajoule_per_kelvin_kilogram   = prefix::exa   <T> * joule_per_kelvin_kilogram <T>;
+    template <class T = double> inline constexpr auto petajoule_per_kelvin_kilogram  = prefix::peta  <T> * joule_per_kelvin_kilogram <T>;
+    template <class T = double> inline constexpr auto terajoule_per_kelvin_kilogram  = prefix::tera  <T> * joule_per_kelvin_kilogram <T>;
+    template <class T = double> inline constexpr auto gigajoule_per_kelvin_kilogram  = prefix::giga  <T> * joule_per_kelvin_kilogram <T>;
+    template <class T = double> inline constexpr auto megajoule_per_kelvin_kilogram  = prefix::mega  <T> * joule_per_kelvin_kilogram <T>;
+    template <class T = double> inline constexpr auto kilojoule_per_kelvin_kilogram  = prefix::kilo  <T> * joule_per_kelvin_kilogram <T>;
+    template <class T = double> inline constexpr auto hectojoule_per_kelvin_kilogram = prefix::hecto <T> * joule_per_kelvin_kilogram <T>;
+    template <class T = double> inline constexpr auto decajoule_per_kelvin_kilogram  = prefix::deca  <T> * joule_per_kelvin_kilogram <T>;
+    template <class T = double> inline constexpr auto decijoule_per_kelvin_kilogram  = prefix::deci  <T> * joule_per_kelvin_kilogram <T>;
+    template <class T = double> inline constexpr auto centijoule_per_kelvin_kilogram = prefix::centi <T> * joule_per_kelvin_kilogram <T>;
+    template <class T = double> inline constexpr auto millijoule_per_kelvin_kilogram = prefix::milli <T> * joule_per_kelvin_kilogram <T>;
+    template <class T = double> inline constexpr auto microjoule_per_kelvin_kilogram = prefix::micro <T> * joule_per_kelvin_kilogram <T>;
+    template <class T = double> inline constexpr auto nanojoule_per_kelvin_kilogram  = prefix::nano  <T> * joule_per_kelvin_kilogram <T>;
+    template <class T = double> inline constexpr auto picojoule_per_kelvin_kilogram  = prefix::pico  <T> * joule_per_kelvin_kilogram <T>;
+    template <class T = double> inline constexpr auto femtojoule_per_kelvin_kilogram = prefix::femto <T> * joule_per_kelvin_kilogram <T>;
+    template <class T = double> inline constexpr auto attojoule_per_kelvin_kilogram  = prefix::femto <T> * joule_per_kelvin_kilogram <T>;
+    template <class T = double> inline constexpr auto zeptojoule_per_kelvin_kilogram = prefix::zepto <T> * joule_per_kelvin_kilogram <T>;
+    template <class T = double> inline constexpr auto yoctojoule_per_kelvin_kilogram = prefix::yocto <T> * joule_per_kelvin_kilogram <T>;
+
     template <class T>
     inline const auto
 names_to_values = std::unordered_map <std::string, any_quantity_t <T>>
@@ -1113,6 +1350,13 @@ names_to_values = std::unordered_map <std::string, any_quantity_t <T>>
     { "gray", any_quantity_t { gray <T> }},
     { "sievert", any_quantity_t { sievert <T> }},
     { "katal", any_quantity_t { katal <T> }},
+    { "metre_per_second", any_quantity_t { metre_per_second <T> }},
+    { "square_metre", any_quantity_t { square_metre <T> }},
+    { "cubic_metre", any_quantity_t { cubic_metre <T> }},
+    { "kilogram_per_cubic_metre", any_quantity_t { kilogram_per_cubic_metre <T> }},
+    { "joule_per_kilogram", any_quantity_t { joule_per_kilogram <T> }},
+    { "joule_per_kelvin", any_quantity_t { joule_per_kelvin <T> }},
+    { "joule_per_kelvin_kilogram", any_quantity_t { joule_per_kelvin_kilogram <T> }},
 
 };
     template <class T>
@@ -1149,6 +1393,13 @@ values_to_names = std::unordered_map <any_quantity_t <T>, std::string>
     { any_quantity_t { gray <T> }, "gray" },
     { any_quantity_t { sievert <T> }, "sievert" },
     { any_quantity_t { katal <T> }, "katal" },
+    { any_quantity_t { metre_per_second <T> }, "metre_per_second" },
+    { any_quantity_t { square_metre <T> }, "square_metre" },
+    { any_quantity_t { cubic_metre <T> }, "cubic_metre" },
+    { any_quantity_t { kilogram_per_cubic_metre <T> }, "kilogram_per_cubic_metre" },
+    { any_quantity_t { joule_per_kilogram <T> }, "joule_per_kilogram" },
+    { any_quantity_t { joule_per_kelvin <T> }, "joule_per_kelvin" },
+    { any_quantity_t { joule_per_kelvin_kilogram <T> }, "joule_per_kelvin_kilogram" },
 
 };
     template <class T>
@@ -1174,7 +1425,7 @@ symbols_to_values = std::unordered_map <std::string, any_quantity_t <T>>
     { "C", any_quantity_t { coulomb <T> }},
     { "V", any_quantity_t { volt <T> }},
     { "F", any_quantity_t { farad <T> }},
-    { "\u2126", any_quantity_t { ohm <T> }},
+    { "Ω", any_quantity_t { ohm <T> }},
     { "S", any_quantity_t { siemens <T> }},
     { "Wb", any_quantity_t { weber <T> }},
     { "T", any_quantity_t { tesla <T> }},
@@ -1185,6 +1436,13 @@ symbols_to_values = std::unordered_map <std::string, any_quantity_t <T>>
     { "Gy", any_quantity_t { gray <T> }},
     { "Sv", any_quantity_t { sievert <T> }},
     { "kat", any_quantity_t { katal <T> }},
+    { "m.s-1", any_quantity_t { metre_per_second <T> }},
+    { "m2", any_quantity_t { square_metre <T> }},
+    { "m3", any_quantity_t { cubic_metre <T> }},
+    { "kg.m-3", any_quantity_t { kilogram_per_cubic_metre <T> }},
+    { "J.kg-1", any_quantity_t { joule_per_kilogram <T> }},
+    { "J.K-1", any_quantity_t { joule_per_kelvin <T> }},
+    { "J.K-1.kg-1", any_quantity_t { joule_per_kelvin_kilogram <T> }},
 
 };
     template <class T>
@@ -1210,7 +1468,7 @@ values_to_symbols = std::unordered_map <any_quantity_t <T>, std::string>
     { any_quantity_t { coulomb <T> }, "C" },
     { any_quantity_t { volt <T> }, "V" },
     { any_quantity_t { farad <T> }, "F" },
-    { any_quantity_t { ohm <T> }, "\u2126" },
+    { any_quantity_t { ohm <T> }, "Ω" },
     { any_quantity_t { siemens <T> }, "S" },
     { any_quantity_t { weber <T> }, "Wb" },
     { any_quantity_t { tesla <T> }, "T" },
@@ -1221,6 +1479,13 @@ values_to_symbols = std::unordered_map <any_quantity_t <T>, std::string>
     { any_quantity_t { gray <T> }, "Gy" },
     { any_quantity_t { sievert <T> }, "Sv" },
     { any_quantity_t { katal <T> }, "kat" },
+    { any_quantity_t { metre_per_second <T> }, "m.s-1" },
+    { any_quantity_t { square_metre <T> }, "m2" },
+    { any_quantity_t { cubic_metre <T> }, "m3" },
+    { any_quantity_t { kilogram_per_cubic_metre <T> }, "kg.m-3" },
+    { any_quantity_t { joule_per_kilogram <T> }, "J.kg-1" },
+    { any_quantity_t { joule_per_kelvin <T> }, "J.K-1" },
+    { any_quantity_t { joule_per_kelvin_kilogram <T> }, "J.K-1.kg-1" },
 
 };
     inline const auto
@@ -1245,7 +1510,7 @@ names_to_symbols = std::unordered_map <std::string, std::string>
     { "coulomb", "C" },
     { "volt", "V" },
     { "farad", "F" },
-    { "ohm", "\u2126" },
+    { "ohm", "Ω" },
     { "siemens", "S" },
     { "weber", "Wb" },
     { "tesla", "T" },
@@ -1256,6 +1521,13 @@ names_to_symbols = std::unordered_map <std::string, std::string>
     { "gray", "Gy" },
     { "sievert", "Sv" },
     { "katal", "kat" },
+    { "metre_per_second", "m.s-1" },
+    { "square_metre", "m2" },
+    { "cubic_metre", "m3" },
+    { "kilogram_per_cubic_metre", "kg.m-3" },
+    { "joule_per_kilogram", "J.kg-1" },
+    { "joule_per_kelvin", "J.K-1" },
+    { "joule_per_kelvin_kilogram", "J.K-1.kg-1" },
 
 };
     inline const auto
@@ -1280,7 +1552,7 @@ symbols_to_names = std::unordered_map <std::string, std::string>
     { "C", "coulomb" },
     { "V", "volt" },
     { "F", "farad" },
-    { "\u2126", "ohm" },
+    { "Ω", "ohm" },
     { "S", "siemens" },
     { "Wb", "weber" },
     { "T", "tesla" },
@@ -1291,6 +1563,13 @@ symbols_to_names = std::unordered_map <std::string, std::string>
     { "Gy", "gray" },
     { "Sv", "sievert" },
     { "kat", "katal" },
+    { "m.s-1", "metre_per_second" },
+    { "m2", "square_metre" },
+    { "m3", "cubic_metre" },
+    { "kg.m-3", "kilogram_per_cubic_metre" },
+    { "J.kg-1", "joule_per_kilogram" },
+    { "J.K-1", "joule_per_kelvin" },
+    { "J.K-1.kg-1", "joule_per_kelvin_kilogram" },
 
 };
 
@@ -1336,13 +1615,13 @@ dimension_names_to_unit_names = std::unordered_map <std::string, std::vector <st
     { "absorbed_dose", { "gray", }},
     { "dose_equivalent", { "sievert", }},
     { "catalytic_activity", { "katal", }},
-    { "velocity", { }},
-    { "area", { }},
-    { "volume", { }},
-    { "density", { }},
-    { "massic_energy", { }},
-    { "entropy", { }},
-    { "massic_entropy", { }},
+    { "velocity", { "metre_per_second", }},
+    { "area", { "square_metre", }},
+    { "volume", { "cubic_metre", }},
+    { "density", { "kilogram_per_cubic_metre", }},
+    { "massic_energy", { "joule_per_kilogram", }},
+    { "entropy", { "joule_per_kelvin", }},
+    { "massic_entropy", { "joule_per_kelvin_kilogram", }},
     { "massic_volume", { }},
     { "compressibility", { }},
     { "thermal_expansion", { }},
@@ -1362,9 +1641,9 @@ dimension_names_to_unit_names = std::unordered_map <std::string, std::vector <st
     { "ambient_dose_equivalent", { "sievert", }},
     { "directional_dose_equivalent", { "sievert", }},
     { "personal_dose_equivalent", { "sievert", }},
-    { "heat_capacity", { }},
-    { "massic_heat_capacity", { }},
-    { "massic_enthalpy", { }},
+    { "heat_capacity", { "joule_per_kelvin", }},
+    { "massic_heat_capacity", { "joule_per_kelvin_kilogram", }},
+    { "massic_enthalpy", { "joule_per_kilogram", }},
 };
     template <class T>
     inline const auto
@@ -1397,13 +1676,13 @@ dimensions_to_units = std::unordered_map <dimension_t, std::vector <any_quantity
     { dimension::absorbed_dose, { gray <T>, }},
     { dimension::dose_equivalent, { sievert <T>, }},
     { dimension::catalytic_activity, { katal <T>, }},
-    { dimension::velocity, { }},
-    { dimension::area, { }},
-    { dimension::volume, { }},
-    { dimension::density, { }},
-    { dimension::massic_energy, { }},
-    { dimension::entropy, { }},
-    { dimension::massic_entropy, { }},
+    { dimension::velocity, { metre_per_second <T>, }},
+    { dimension::area, { square_metre <T>, }},
+    { dimension::volume, { cubic_metre <T>, }},
+    { dimension::density, { kilogram_per_cubic_metre <T>, }},
+    { dimension::massic_energy, { joule_per_kilogram <T>, }},
+    { dimension::entropy, { joule_per_kelvin <T>, }},
+    { dimension::massic_entropy, { joule_per_kelvin_kilogram <T>, }},
     { dimension::massic_volume, { }},
     { dimension::compressibility, { }},
     { dimension::thermal_expansion, { }},
@@ -1423,9 +1702,9 @@ dimensions_to_units = std::unordered_map <dimension_t, std::vector <any_quantity
     { dimension::ambient_dose_equivalent, { sievert <T>, }},
     { dimension::directional_dose_equivalent, { sievert <T>, }},
     { dimension::personal_dose_equivalent, { sievert <T>, }},
-    { dimension::heat_capacity, { }},
-    { dimension::massic_heat_capacity, { }},
-    { dimension::massic_enthalpy, { }},
+    { dimension::heat_capacity, { joule_per_kelvin <T>, }},
+    { dimension::massic_heat_capacity, { joule_per_kelvin_kilogram <T>, }},
+    { dimension::massic_enthalpy, { joule_per_kilogram <T>, }},
 
 };
     namespace 
@@ -1935,6 +2214,42 @@ literals
     constexpr auto operator ""_pkat  (long double x) noexcept { return x * unit::picokatal <long double>; }
     constexpr auto operator ""_fkat  (long double x) noexcept { return x * unit::femtokatal <long double>; }
     constexpr auto operator ""_akat  (long double x) noexcept { return x * unit::attokatal <long double>; }
+
+    constexpr auto operator ""_m2   (long double x) noexcept { return x * unit::square_metre <long double>; }
+    constexpr auto operator ""_Em2  (long double x) noexcept { return x * unit::exasquare_metre <long double>; }
+    constexpr auto operator ""_Pm2  (long double x) noexcept { return x * unit::petasquare_metre <long double>; }
+    constexpr auto operator ""_Tm2  (long double x) noexcept { return x * unit::terasquare_metre <long double>; }
+    constexpr auto operator ""_Gm2  (long double x) noexcept { return x * unit::gigasquare_metre <long double>; }
+    constexpr auto operator ""_Mm2  (long double x) noexcept { return x * unit::megasquare_metre <long double>; }
+    constexpr auto operator ""_km2  (long double x) noexcept { return x * unit::kilosquare_metre <long double>; }
+    constexpr auto operator ""_hm2  (long double x) noexcept { return x * unit::hectosquare_metre <long double>; }
+    constexpr auto operator ""_dam2 (long double x) noexcept { return x * unit::decasquare_metre <long double>; }
+    constexpr auto operator ""_dm2  (long double x) noexcept { return x * unit::decisquare_metre <long double>; }
+    constexpr auto operator ""_cm2  (long double x) noexcept { return x * unit::centisquare_metre <long double>; }
+    constexpr auto operator ""_mm2  (long double x) noexcept { return x * unit::millisquare_metre <long double>; }
+    constexpr auto operator ""_um2  (long double x) noexcept { return x * unit::microsquare_metre <long double>; }
+    constexpr auto operator ""_nm2  (long double x) noexcept { return x * unit::nanosquare_metre <long double>; }
+    constexpr auto operator ""_pm2  (long double x) noexcept { return x * unit::picosquare_metre <long double>; }
+    constexpr auto operator ""_fm2  (long double x) noexcept { return x * unit::femtosquare_metre <long double>; }
+    constexpr auto operator ""_am2  (long double x) noexcept { return x * unit::attosquare_metre <long double>; }
+
+    constexpr auto operator ""_m3   (long double x) noexcept { return x * unit::cubic_metre <long double>; }
+    constexpr auto operator ""_Em3  (long double x) noexcept { return x * unit::exacubic_metre <long double>; }
+    constexpr auto operator ""_Pm3  (long double x) noexcept { return x * unit::petacubic_metre <long double>; }
+    constexpr auto operator ""_Tm3  (long double x) noexcept { return x * unit::teracubic_metre <long double>; }
+    constexpr auto operator ""_Gm3  (long double x) noexcept { return x * unit::gigacubic_metre <long double>; }
+    constexpr auto operator ""_Mm3  (long double x) noexcept { return x * unit::megacubic_metre <long double>; }
+    constexpr auto operator ""_km3  (long double x) noexcept { return x * unit::kilocubic_metre <long double>; }
+    constexpr auto operator ""_hm3  (long double x) noexcept { return x * unit::hectocubic_metre <long double>; }
+    constexpr auto operator ""_dam3 (long double x) noexcept { return x * unit::decacubic_metre <long double>; }
+    constexpr auto operator ""_dm3  (long double x) noexcept { return x * unit::decicubic_metre <long double>; }
+    constexpr auto operator ""_cm3  (long double x) noexcept { return x * unit::centicubic_metre <long double>; }
+    constexpr auto operator ""_mm3  (long double x) noexcept { return x * unit::millicubic_metre <long double>; }
+    constexpr auto operator ""_um3  (long double x) noexcept { return x * unit::microcubic_metre <long double>; }
+    constexpr auto operator ""_nm3  (long double x) noexcept { return x * unit::nanocubic_metre <long double>; }
+    constexpr auto operator ""_pm3  (long double x) noexcept { return x * unit::picocubic_metre <long double>; }
+    constexpr auto operator ""_fm3  (long double x) noexcept { return x * unit::femtocubic_metre <long double>; }
+    constexpr auto operator ""_am3  (long double x) noexcept { return x * unit::attocubic_metre <long double>; }
 
 } // namespace literals
 } // namespace unit

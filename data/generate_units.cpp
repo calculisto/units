@@ -17,7 +17,7 @@ unit_t
     magnitude;
 };
     struct
-data_t
+entry_t
 {
         std::string
     dimension;
@@ -32,12 +32,24 @@ capitalize (std::string word)
     word[0] = toupper (word[0]);
     return word;
 }
+    auto
+is_word (std::string const& s)
+{
+    if (s == "Ω") return true;
+    return std::ranges::all_of (
+          s
+        , [](auto c)
+          { 
+            return std::isalnum (c) || c == '_'; 
+          }
+    );
+}
 
     int
 main ()
 {
         auto
-    data = std::vector <data_t> {};
+    data = std::vector <entry_t> {};
         auto
     aliases = std::vector <std::pair <std::string, std::string>> {};
         auto
@@ -83,16 +95,16 @@ main ()
             }
             units.push_back ({ std::move (u), std::move (s), v });
         }
-        if (units.empty () && std::find_if (
+        if (units.empty () && is_word (definition)/*std::find_if (
                   definition.begin ()
                 , definition.end ()
                 , [](auto c){ return !(std::isalnum (c) || c == '_'); }
-            ) == definition.end ()
+            ) == definition.end ()*/
         ){
             aliases.emplace_back (dimension, definition);
             continue;
         }
-        data.push_back (data_t {
+        data.push_back (entry_t {
               std::move (dimension)
             , std::move (definition)
             , std::move (units)
@@ -130,6 +142,9 @@ names_to_values = std::unordered_map <std::string, dimension_t>
     }
 out << R"(
 };
+/* XXX Do not use, will probably not work as intended because of dimenaion
+ * aliases (e.g. massic_energy and absorbed_dose).
+ */
     inline const auto
 values_to_names = std::unordered_map <dimension_t, std::string>
 {
@@ -141,6 +156,60 @@ values_to_names = std::unordered_map <dimension_t, std::string>
     for (auto&& [dim, def]: aliases)
     {
         out << format ("    {{ {0}, \"{0}\" }},\n", dim);
+    }
+out << R"(
+};
+
+    inline const auto
+preferred_unit_name = std::unordered_map <std::string, std::string>
+{
+)";
+    for (auto&& [dim, def, uni]: data)
+    {
+        if (uni.empty ()) 
+        {
+            continue;
+        }
+        out << format ("    {{ \"{}\", \"{}\" }},\n", dim, uni[0].name);
+    }
+    for (auto&& [dim, def]: aliases)
+    {
+        if (
+            auto it = std::ranges::find (data, dim, &entry_t::dimension); 
+            it != data.end ()
+        ){
+                auto const&
+            uni = it->units;
+            if (uni.empty ()) continue;
+            out << format ("    {{ {0}, \"{0}\" }},\n", dim, uni[0].name);
+        }
+    }
+out << R"(
+};
+
+    inline const auto
+preferred_unit_symbol = std::unordered_map <std::string, std::string>
+{
+)";
+    for (auto&& [dim, def, uni]: data)
+    {
+        if (uni.empty ()) 
+        {
+            continue;
+        }
+        out << format ("    {{ \"{}\", \"{}\" }},\n", dim, uni[0].symbol);
+    }
+    for (auto&& [dim, def]: aliases)
+    {
+        if (
+            auto it = std::ranges::find (data, dim, &entry_t::dimension); 
+            it != data.end ()
+        ){
+                auto const&
+            uni = it->units;
+            if (uni.empty ()) continue;
+            out << format ("    {{ {0}, \"{0}\" }},\n", dim, uni[0].symbol);
+        }
     }
 out << R"(
 };
@@ -458,6 +527,7 @@ literals
     for (auto&& [dim, def, uni]: data) for (auto&& [u_nam, u_sym, u_mag]: uni)
     {
         if (u_nam == "ohm" || u_nam == "none") continue;
+        if (!is_word (u_sym)) continue;
         out << format (
 R"(
     constexpr auto operator ""_{0}   (long double x) noexcept {{ return x * unit::{1} <long double>; }}

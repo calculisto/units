@@ -122,4 +122,9 @@ TEST_CASE("units")
     {
         // TODO
     }
+    SUBCASE("unit_symbol")
+    {
+        CHECK(unit_symbol ("absorbed_dose") == "Gy");
+        CHECK(unit_symbol ("massic_energy") == "J.kg-1");
+    }
 };

@@ -22,7 +22,7 @@ for (auto&& [symbol_u, unit]: unit::symbols_to_values <double>)
             auto
         u = unit_parse (symbol_p + symbol_u);
         //CHECK (u.has_value ());
-        CHECK (u == prefix * unit);
+        CHECK_MESSAGE (u == prefix * unit, symbol_p, ' ', symbol_u, ' ', u.magnitude, ' ', (prefix * unit).magnitude);
     }
 }
 

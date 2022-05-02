@@ -9,7 +9,6 @@
 
 #include "detail/generated_units.inc"
 
-
 // Wait for sts::string to be constexpr
     /*constexpr*/ inline auto
 base_unit_symbol (dimension_t const& d)
@@ -41,5 +40,17 @@ base_unit_symbol (dimension_t const& d)
     }
     return r;
 }
-
+    
+    inline auto
+unit_symbol (std::string const& dimension_string)
+{
+        using namespace dimension;
+    if (
+        auto i = preferred_unit_symbol.find (dimension_string); 
+        i != preferred_unit_symbol.end ()
+    ){
+        return i->second;
+    }
+    return base_unit_symbol (names_to_values.at (dimension_string));
+}
 } // namespace isto::units
