@@ -175,13 +175,13 @@ preferred_unit_name = std::unordered_map <std::string, std::string>
     for (auto&& [dim, def]: aliases)
     {
         if (
-            auto it = std::ranges::find (data, dim, &entry_t::dimension); 
+            auto it = std::ranges::find (data, def, &entry_t::dimension); 
             it != data.end ()
         ){
                 auto const&
             uni = it->units;
             if (uni.empty ()) continue;
-            out << format ("    {{ {0}, \"{0}\" }},\n", dim, uni[0].name);
+            out << format ("    {{ \"{}\", \"{}\" }},\n", dim, uni[0].name);
         }
     }
 out << R"(
@@ -202,13 +202,13 @@ preferred_unit_symbol = std::unordered_map <std::string, std::string>
     for (auto&& [dim, def]: aliases)
     {
         if (
-            auto it = std::ranges::find (data, dim, &entry_t::dimension); 
+            auto it = std::ranges::find (data, def, &entry_t::dimension); 
             it != data.end ()
         ){
                 auto const&
             uni = it->units;
             if (uni.empty ()) continue;
-            out << format ("    {{ {0}, \"{0}\" }},\n", dim, uni[0].symbol);
+            out << format ("    {{ \"{}\", \"{}\" }},\n", dim, uni[0].symbol);
         }
     }
 out << R"(

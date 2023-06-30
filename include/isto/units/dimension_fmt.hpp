@@ -37,12 +37,12 @@ fmt::formatter <dimension_t>
             if (d[i] == 0) continue;
             if (d[i] == 1) 
             {
-                format_to (ctx.out (), "{}", dimension_symbol[i]);
+                fmt::format_to (ctx.out (), "{}", dimension_symbol[i]);
             }
             else
             {
-                format_to (ctx.out (), "{}", dimension_symbol[i]);
-                format_to (ctx.out (), "{:g}", d[i]);
+                fmt::format_to (ctx.out (), "{}", dimension_symbol[i]);
+                fmt::format_to (ctx.out (), "{:g}", d[i]);
             }
         }
         return ctx.out ();
