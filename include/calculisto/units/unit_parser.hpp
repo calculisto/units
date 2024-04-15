@@ -5,7 +5,7 @@
 #include <optional>
 
     namespace
-isto::units
+calculisto::units
 {
     using namespace tao::pegtl;
     namespace
@@ -353,4 +353,4 @@ unit_parse_opt (std::string const& string)
     }
     return s.unit;
 }
-} // namespace isto::units
+} // namespace calculisto::units

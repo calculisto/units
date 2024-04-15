@@ -1,10 +1,10 @@
 #pragma once
 #include <array>
 #include "detail/hash_combine.hpp"
-    using isto::hash_combine::hash_combine_range;
+    using calculisto::hash_combine::hash_combine_range;
 
     namespace
-isto::units
+calculisto::units
 {
 // A physical dimension.
     struct
@@ -102,7 +102,7 @@ inverse (dimension_t a)
           std::begin (a.data)
         , std::end   (a.data)
         , std::begin (a.data)
-        // Bug ? see ~/isto/iapws/sandbox/float.cpp
+        // Bug ? see ~/calculisto/iapws/sandbox/float.cpp
         , [](auto x){ return x == 0 ? x : -x; }
     );
     return a;
@@ -116,12 +116,12 @@ operator + (dimension_t a, dimension_t b) = delete;
     dimension_t
 operator - (dimension_t a, dimension_t b) = delete;
 
-} // namespace isto::units
+} // namespace calculisto::units
 
     namespace
 std
 {
-        using isto::units::dimension_t;
+        using calculisto::units::dimension_t;
 
         template <>
         struct

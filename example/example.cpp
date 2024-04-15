@@ -1,7 +1,7 @@
-#include "../include/isto/units/units.hpp"
-    using namespace isto::units; // For the concepts
-    using namespace isto::units::unit; // For the units
-    using namespace isto::units::unit::literals; // For the literals
+#include "../include/calculisto/units/units.hpp"
+    using namespace calculisto::units; // For the concepts
+    using namespace calculisto::units::unit; // For the units
+    using namespace calculisto::units::unit::literals; // For the literals
 #include <iostream>
 
     constexpr auto

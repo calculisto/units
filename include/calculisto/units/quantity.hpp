@@ -6,7 +6,7 @@
 #include <complex>
 
     namespace
-isto::units
+calculisto::units
 {
     template <dimension_t Dimension, class ValueType>
     struct quantity_t;
@@ -56,13 +56,13 @@ any_quantity_t (quantity_t <Dimension, T> const&)
 quantity_conversion_error
 {};
 
-} // namespace isto::units
+} // namespace calculisto::units
 
 
     namespace
 std
 {
-        using isto::units::any_quantity_t;
+        using calculisto::units::any_quantity_t;
         template <class T>
         struct
     hash <any_quantity_t <T>>
@@ -70,13 +70,13 @@ std
             std::size_t
         operator () (any_quantity_t <T> const& q) const
         {
-            return isto::hash_combine::hash_combine (q.magnitude, q.dimension);
+            return calculisto::hash_combine::hash_combine (q.magnitude, q.dimension);
         }
     };
 } // namespace std
 
     namespace
-isto::units
+calculisto::units
 {
     template <class ValueType1, class ValueType2>
     constexpr auto
@@ -679,5 +679,5 @@ split (any_quantity_t <ValueType> const& /*q*/)
     throw std::runtime_error {"IIP"};
 }
 
-} // namespace isto::units
+} // namespace calculisto::units
 // vim: fdm=marker

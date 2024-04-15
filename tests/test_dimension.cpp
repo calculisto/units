@@ -1,6 +1,6 @@
 #include "doctest/doctest.h"
-#include "../include/isto/units/dimension.hpp"
-    using namespace isto::units;
+#include "../include/calculisto/units/dimension.hpp"
+    using namespace calculisto::units;
 
 TEST_CASE("dimension.hpp")
 {

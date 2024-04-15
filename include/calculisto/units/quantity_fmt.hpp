@@ -1,6 +1,6 @@
 #pragma once
 #include "units.hpp"
-    using namespace isto::units;
+    using namespace calculisto::units;
 #include <fmt/format.h>
 
 

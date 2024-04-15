@@ -1,7 +1,7 @@
 #pragma once
 #include <functional>
 
-    namespace isto::hash_combine
+    namespace calculisto::hash_combine
 {
     namespace
 detail
@@ -36,4 +36,4 @@ hash_combine_range (It first, It last)
     }
     return seed;
 }
-} // namespace isto::hash_combine
+} // namespace calculisto::hash_combine

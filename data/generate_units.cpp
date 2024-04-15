@@ -111,7 +111,7 @@ main ()
         });
     }
         auto
-    out = std::ofstream { "../include/isto/units/detail/generated_units.inc" };
+    out = std::ofstream { "../include/calculisto/units/detail/generated_units.inc" };
 
 out << R"(// Automatically generated, do not edit.
     namespace

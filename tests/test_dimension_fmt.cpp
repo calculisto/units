@@ -1,8 +1,8 @@
 #include "doctest/doctest.h"
 
-#include "../include/isto/units/dimension_fmt.hpp"
-#include "../include/isto/units/units.hpp"
-    using namespace isto::units;
+#include "../include/calculisto/units/dimension_fmt.hpp"
+#include "../include/calculisto/units/units.hpp"
+    using namespace calculisto::units;
 
 
 TEST_CASE("dimension_fmt.hpp")

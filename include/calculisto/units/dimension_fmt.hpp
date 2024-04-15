@@ -1,6 +1,6 @@
 #pragma once
 #include "dimension.hpp"
-    using isto::units::dimension_t;
+    using calculisto::units::dimension_t;
 #include <string_view>
     using namespace std::literals;
 #include <fmt/format.h>

@@ -1,10 +1,10 @@
 #include "doctest/doctest.h"
 
-#include "../include/isto/units/units.hpp"
-    using namespace isto::units;
+#include "../include/calculisto/units/units.hpp"
+    using namespace calculisto::units;
 
-#include "../include/isto/units/quantity_fmt.hpp"
-#include "../include/isto/units/dimension_fmt.hpp"
+#include "../include/calculisto/units/quantity_fmt.hpp"
+#include "../include/calculisto/units/dimension_fmt.hpp"
 
 TEST_CASE("units")
 {

@@ -4,7 +4,7 @@
 
 #include <fmt/format.h>
 
-    namespace isto::units
+    namespace calculisto::units
 {
 
 #include "detail/generated_units.inc"
@@ -53,4 +53,4 @@ unit_symbol (std::string const& dimension_string)
     }
     return base_unit_symbol (names_to_values.at (dimension_string));
 }
-} // namespace isto::units
+} // namespace calculisto::units

@@ -1,7 +1,7 @@
 #include "doctest/doctest.h"
 
-#include "../include/isto/units/quantity.hpp"
-    using namespace isto::units;
+#include "../include/calculisto/units/quantity.hpp"
+    using namespace calculisto::units;
 
 /*
     template <class T>

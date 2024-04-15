@@ -1,7 +1,7 @@
 #include "doctest/doctest.h"
-#include "../include/isto/units/unit_parser.hpp"
-#include "../include/isto/units/quantity_fmt.hpp"
-    using namespace isto::units;
+#include "../include/calculisto/units/unit_parser.hpp"
+#include "../include/calculisto/units/quantity_fmt.hpp"
+    using namespace calculisto::units;
 
 TEST_CASE("unit_parser.hpp")
 {
