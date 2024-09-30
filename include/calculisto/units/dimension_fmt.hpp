@@ -19,7 +19,7 @@ fmt::formatter <dimension_t>
 
         template <typename FormatContext>
         auto 
-    format (dimension_t const& d, FormatContext& ctx) 
+    format (dimension_t const& d, FormatContext& ctx) const
     {
             static constexpr auto
         dimension_symbol = std::array 

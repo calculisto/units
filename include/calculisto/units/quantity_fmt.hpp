@@ -47,7 +47,7 @@ fmt::formatter <any_quantity_t <ValueType>, Char>
     format (
           any_quantity_t <ValueType> const& quantity
         , FormatContext& ctx
-    ){
+    ) const {
         for (auto [symbol, unit]: unit::symbols_to_values <ValueType>)
         {
             if (quantity.dimension / unit.dimension == dimension::none)
@@ -101,7 +101,7 @@ fmt::formatter <quantity_t <Dimension, ValueType>, Char>
     format (
           quantity_t <Dimension, ValueType> const& quantity
         , FormatContext& ctx
-    ){
+    ) const {
             auto const
         q = any_quantity_t { quantity.magnitude, Dimension };
         return formatter <any_quantity_t <ValueType>>::format (q, ctx);

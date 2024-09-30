@@ -2,6 +2,7 @@
 #include <array>
 #include "detail/hash_combine.hpp"
     using calculisto::hash_combine::hash_combine_range;
+#include <algorithm>
 
     namespace
 calculisto::units
